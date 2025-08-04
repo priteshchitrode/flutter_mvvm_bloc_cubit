@@ -9,7 +9,7 @@ import 'hasInternet/has_internet_connection.dart';
 class LocationService {
   LocationService._();
 
-  /// Get current position
+  // Get current position
   Future<Result<geo.Position>> getCurrentLatLong() async {
     try {
       if (HasInternetConnection.isInternet != true) {
@@ -40,7 +40,7 @@ class LocationService {
   }
 
 
-  /// Get latitude
+  // Get latitude
   Future<Result<double>> getLatitude() async {
     final result = await getCurrentLatLong();
     if (result is Success<geo.Position>) {
@@ -51,7 +51,7 @@ class LocationService {
   }
 
 
-  /// Get longitude
+  // Get longitude
   Future<Result<double>> getLongitude() async {
     final result = await getCurrentLatLong();
     if (result is Success<geo.Position>) {
@@ -62,7 +62,7 @@ class LocationService {
   }
 
 
-  /// Get address from latitude & longitude
+  // Get address from latitude & longitude
   Future<Result<String>> getAddressFromLatLng(double latitude, double longitude) async {
     try {
       if (HasInternetConnection.isInternet != true) {
@@ -84,7 +84,7 @@ class LocationService {
   }
 
 
-  /// Fetch complete location data (lat, long, address)
+  // Fetch complete location data (lat, long, address)
   Future<Result<Map<String, dynamic>>> getCurrentLatLongWithAddress() async {
     final positionResult = await getCurrentLatLong();
     if (positionResult is Success<geo.Position>) {
@@ -115,7 +115,7 @@ class LocationService {
         if (placeMarks.isNotEmpty) {
           return Success(placeMarks.first);
         } else {
-          return Error(ErrorWithMessage(message: "No placemark found."));
+          return Error(ErrorWithMessage(message: "No place mark found."));
         }
       } else {
         return Error(ErrorWithMessage(message: "Failed to get current location."));

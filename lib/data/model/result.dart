@@ -47,12 +47,14 @@ class ErrorWithMessage extends ErrorType {
 
 }
 
+
 class TokenExpiredError extends ErrorType {
   @override
   String getText(BuildContext context) {
     return AppString.errorType.tokenExpireError.capitalize;
   }
 }
+
 
 class InvalidTokenError extends ErrorType {
   @override
@@ -61,12 +63,14 @@ class InvalidTokenError extends ErrorType {
   }
 }
 
+
 class BadRequestError extends ErrorType {
   @override
   String getText(BuildContext context) {
     return AppString.errorType.badRequestError.capitalize;
   }
 }
+
 
 class InternalServerError extends ErrorType {
   @override
@@ -75,12 +79,14 @@ class InternalServerError extends ErrorType {
   }
 }
 
+
 class ConflictError extends ErrorType {
   @override
   String getText(BuildContext context) {
     return AppString.errorType.conflictError.capitalize;
   }
 }
+
 
 class NotFoundError extends ErrorType {
   @override
@@ -89,12 +95,14 @@ class NotFoundError extends ErrorType {
   }
 }
 
+
 class UnauthenticatedError extends ErrorType {
   @override
   String getText(BuildContext context) {
     return AppString.errorType.unauthenticatedError.capitalize;
   }
 }
+
 
 class NetworkTimeoutError extends ErrorType {
   @override
@@ -103,12 +111,14 @@ class NetworkTimeoutError extends ErrorType {
   }
 }
 
+
 class RequestCancelledError extends ErrorType {
   @override
   String getText(BuildContext context) {
     return AppString.errorType.requestCancelledError.capitalize;
   }
 }
+
 
 class DeserializationError extends ErrorType {
   @override
@@ -117,12 +127,14 @@ class DeserializationError extends ErrorType {
   }
 }
 
+
 class ResponseStatusFailed extends ErrorType {
   @override
   String getText(BuildContext context) {
     return AppString.errorType.responseStatusFail.capitalize;
   }
 }
+
 
 class SerializationError extends ErrorType {
   @override
@@ -131,6 +143,7 @@ class SerializationError extends ErrorType {
   }
 }
 
+
 class GenericError extends ErrorType {
   @override
   String getText(BuildContext context) {
@@ -138,12 +151,14 @@ class GenericError extends ErrorType {
   }
 }
 
+
 class LoginAttemptError extends ErrorType {
   @override
   String getText(BuildContext context) {
     return AppString.errorType.loginAttemptError.capitalize;
   }
 }
+
 
 class InternetNetworkError extends ErrorType {
   @override
@@ -153,9 +168,11 @@ class InternetNetworkError extends ErrorType {
 }
 
 
+
 class InvalidInputError extends ErrorType {
   @override
   String getText(BuildContext context) {
     return AppString.errorType.invalidInput.capitalize;
   }
 }
+

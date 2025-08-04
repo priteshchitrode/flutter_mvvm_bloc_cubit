@@ -1,9 +1,7 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter_mvvm_bloc_cubit/core/firebase_options.dart';
 import 'package:flutter_mvvm_bloc_cubit/dependency_injection/locator.dart';
 
 

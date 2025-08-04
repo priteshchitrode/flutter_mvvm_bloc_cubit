@@ -9,7 +9,7 @@ import 'app_text_style.dart';
 class ToastMessages{
   ToastMessages._();
 
-  /// Error Msg
+  // Error Msg
   static internetError({required String message}) async {
     Flushbar(
       messageText: Text(message, style: AppTextStyle.body),
@@ -29,7 +29,7 @@ class ToastMessages{
     ).show(navigatorKey.currentState!.context);
   }
 
-  /// success Msg
+  // success Msg
   static success({required String message}) async {
     Flushbar(
       messageText: Text(message,  style: AppTextStyle.body),
@@ -48,7 +48,7 @@ class ToastMessages{
     ).show(navigatorKey.currentState!.context);
   }
 
-  /// Error Msg
+  // Error Msg
   static error({required String message}) {
     Flushbar(
       messageText: Text(message, style: AppTextStyle.body),
@@ -67,7 +67,7 @@ class ToastMessages{
     ).show(appContext);
   }
 
-  /// Error Msg
+  // Error Msg
   static alert({required String message}) {
     Flushbar(
       messageText: Text(message, style: AppTextStyle.body),
@@ -86,7 +86,7 @@ class ToastMessages{
     ).show(navigatorKey.currentState!.context);
   }
 
-  /// Custom toast
+  // Custom toast
   static custom({required String message}) {
     Flushbar(
       messageText: Text(message, style: AppTextStyle.body),

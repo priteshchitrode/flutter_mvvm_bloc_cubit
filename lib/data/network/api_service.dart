@@ -107,7 +107,11 @@ class ApiService {
         url,
         data: body,
         queryParameters: queryParams,
-        options: Options(headers: await _getHeaders(), sendTimeout: _timeout.inMilliseconds, receiveTimeout: _timeout.inMilliseconds),
+        options: Options(
+            headers: await _getHeaders(),
+            sendTimeout: _timeout.inMilliseconds,
+            receiveTimeout: _timeout.inMilliseconds,
+        ),
       );
       return _handleBodyResponse(response);
     } on DioError catch (dioError) {
@@ -182,8 +186,6 @@ class ApiService {
         } else {
           return Error(ErrorWithMessage(message: "Invalid file type provided."));
         }
-      }else{
-
       }
 
       // Adding extra form fields if provided
@@ -270,6 +272,7 @@ class ApiService {
     }
   }
 
+
   // Json to Query Params
   String jsonToQueryParams(Map<String, dynamic> json) {
     String stringQueryParams = "";
@@ -285,6 +288,7 @@ class ApiService {
       return stringQueryParams;
     }
   }
+
 
   String decodeQueryParams(String queryString) {
     return Uri.splitQueryString(queryString).entries.map((e) {

@@ -9,7 +9,9 @@ class MultiBlocWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [],
+      providers: [
+
+      ],
       child: child,
     );
   }
