@@ -74,10 +74,11 @@ class _UploadAttachmentFilesState extends State<UploadAttachmentFiles> {
                             setState(() {});
                           } : () {},
                           child: DottedBorder(
-                            color: AppColors.dividerColor,
-                            strokeWidth: 1.5,
-                            radius: const Radius.circular(12),
-                            borderType: BorderType.RRect,
+                            options: RectDottedBorderOptions(
+                              color: Colors.black12,
+                              dashPattern: [10, 5],
+                              strokeWidth: 1.5,
+                            ),
                             child: Container(
                               height: 155,
                               alignment: Alignment.center,
@@ -188,10 +189,11 @@ class _UploadAttachmentFilesState extends State<UploadAttachmentFiles> {
                 children: [
                   Expanded(
                     child: DottedBorder(
-                      color:  Colors.black12,
-                      strokeWidth: 1.5,
-                      radius:  const Radius.circular(12),
-                      borderType: BorderType.RRect,
+                      options: RectDottedBorderOptions(
+                        color: Colors.black12,
+                        dashPattern: [10, 5],
+                        strokeWidth: 1.5,
+                      ),
                       child: Container(
                         height: 160,
                         alignment: Alignment.center,
