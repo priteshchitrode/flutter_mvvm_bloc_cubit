@@ -1,22 +1,22 @@
 part of 'login_cubit.dart';
 
 class LoginState extends Equatable {
-  final UIState<SendEmailOtpModel>? sendOtpState;
+  final UIState<LoginModel>? loginUIState;
   const LoginState({
-    this.sendOtpState,
+    this.loginUIState,
  });
 
   LoginState copyWith({
-    UIState<SendEmailOtpModel>? sendOtpState,
+    UIState<LoginModel>? sendOtpState,
   }) {
     return LoginState(
-      sendOtpState: sendOtpState ?? this.sendOtpState,
+      loginUIState: sendOtpState ?? this.loginUIState,
     );
   }
 
   @override
   List<Object?> get props => [
-    sendOtpState
+    loginUIState
   ];
 }
 

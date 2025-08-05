@@ -1,25 +1,29 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_mvvm_bloc_cubit/core/reset_cubit_state.dart';
+import 'package:flutter_mvvm_bloc_cubit/data/model/result.dart';
 import 'package:flutter_mvvm_bloc_cubit/data/ui_state/ui_state.dart';
+import 'package:flutter_mvvm_bloc_cubit/features/authentication/api_request/login_api_request.dart';
+import 'package:flutter_mvvm_bloc_cubit/features/authentication/model/login_model.dart';
+import 'package:flutter_mvvm_bloc_cubit/features/authentication/repository/login_repository.dart';
 part 'login_state.dart';
 
 class LoginCubit extends BaseCubit<LoginState> {
-  LoginCubit() : super(const LoginState());
+  final LoginRepository _repository;
+  LoginCubit(this._repository) : super(const LoginState());
 
 
-
-  // Sent Otp Api Call
-  void _setSendOtpUIState(UIState<SendEmailOtpModel>? uiState){
+  // Login Api Call
+  void _setLoginIState(UIState<LoginModel>? uiState){
     emit(state.copyWith(sendOtpState: uiState));
   }
-  Future<void> sendOtp(String email, userId) async {
-    _setSendOtpUIState(UIState.loading());
-    Result result = await _repository.getSendOtpData(email, userId);
-    if (result is Success<SendEmailOtpModel>) {
-      _setSendOtpUIState(UIState.success(result.value));
+  Future<void> login(LoginApiRequest request) async {
+    _setLoginIState(UIState.loading());
+    Result result = await _repository.login(request);
+    if (result is Success<LoginModel>) {
+      _setLoginIState(UIState.success(result.value));
     }
     if (result is Error) {
-      _setSendOtpUIState(UIState.error(result.type));
+      _setLoginIState(UIState.error(result.type));
     }
   }
 
