@@ -4,26 +4,26 @@ import 'package:logger/logger.dart';
 
 class CustomLog {
 
-  static final _logger = Logger(printer: PrettyPrinter());
+  static final Logger _logger = Logger(printer: PrettyPrinter());
 
   static void debug(Object instance, String message) {
-    if(kDebugMode){
-      _logger.d(message = "[${instance.runtimeType.toString()}] $message", time: DateTimeHelper.now());
+    if (kDebugMode) {
+      final formattedMessage = "[${instance.runtimeType}] $message";
+      _logger.d(formattedMessage, time: DateTimeHelper.now());
     }
   }
 
   static void info(Object instance, String message) {
-    if(kDebugMode){
-      _logger.i(message = "[${instance.runtimeType.toString()}] $message", time: DateTimeHelper.now());
+    if (kDebugMode) {
+      final formattedMessage = "[${instance.runtimeType}] $message";
+      _logger.i(formattedMessage, time: DateTimeHelper.now());
     }
   }
 
-  static void error(Object instance, String message, Object? exception) {
-    if(kDebugMode){
-      _logger.e(message = "[${instance.runtimeType.toString()}] $message}",
-          time: DateTime.now(),
-          error: exception);
+  static void error(Object instance, String message, [Object? exception, StackTrace? stackTrace]) {
+    if (kDebugMode) {
+      final formattedMessage = "[${instance.runtimeType}] $message";
+      _logger.e(formattedMessage, time: DateTimeHelper.now(), error: exception, stackTrace: stackTrace);
     }
   }
-
 }

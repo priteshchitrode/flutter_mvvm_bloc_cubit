@@ -21,7 +21,6 @@ class AppRoutes{
         },
       ),
 
-
       // Default Screen
       GoRoute(
         path: AppRouteName.notFound,

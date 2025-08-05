@@ -11,6 +11,7 @@ class HasInternetConnection {
   final Connectivity connectivity = Connectivity();
   final Dio _dio = Dio();
 
+  /// Check internet connection continues
   Future<void> checkConnectivity() async {
     final List<ConnectivityResult> connectivityResult = (await (connectivity.checkConnectivity()));
     try {

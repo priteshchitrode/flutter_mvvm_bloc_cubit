@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mvvm_bloc_cubit/core/base_state.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/app_button.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/app_colors.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/app_json.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/app_string.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/app_text_style.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/constant_variables.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/extensions/int_extensions.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/extensions/widget_extensions.dart';
 import 'package:lottie/lottie.dart';
-import 'app_button.dart';
-import 'app_colors.dart';
-import 'app_json.dart';
-import 'app_string.dart';
-import 'app_text_style.dart';
-import 'constant_variables.dart';
+
 
 class GenericSuccessScreen extends StatefulWidget {
   final String title;

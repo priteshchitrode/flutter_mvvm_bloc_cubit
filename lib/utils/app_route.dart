@@ -1,12 +1,13 @@
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/common_functions.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/constant_variables.dart';
 import 'app_global_variables.dart';
-import 'common_functions.dart';
-import 'constant_variables.dart';
 
 
-/// Route
+
+// Sliding Up Route
 Route createRoute(Widget screen) {
   return PageRouteBuilder(
     pageBuilder: (context, animation, secondaryAnimation) => screen,
@@ -23,6 +24,8 @@ Route createRoute(Widget screen) {
   );
 }
 
+
+// Common Native Route
 Route commonRoute(Widget screen, {bool isForward = false, bool nativeMode = false}){
   if(isAndroid){
     if(isForward){
@@ -41,12 +44,12 @@ Route commonRoute(Widget screen, {bool isForward = false, bool nativeMode = fals
 }
 
 
-
+// Splash Route
 Route splashRoute(Widget screen){
   return MaterialPageRoute(builder: (context) => screen);
 }
 
-/// Bottom Sheet
+// Bottom Sheet
 Future<dynamic> commonBottomSheet<T>({required BuildContext context, required Widget screen, bool? barrierDismissible}) async {
   commonHideKeyboard(context);
   commonHapticFeedback();
@@ -58,9 +61,10 @@ Future<dynamic> commonBottomSheet<T>({required BuildContext context, required Wi
         borderRadius: const BorderRadius.only(topLeft: Radius.circular(commonBottomSheetRadius), topRight: Radius.circular(commonBottomSheetRadius)),
         child: screen),
   );
-  //return null;
 }
 
+
+// Hero Animation Route
 Route createHeroAnimationRoute(Widget screen) {
   return PageRouteBuilder(
     transitionDuration: const Duration(milliseconds: 400),
@@ -75,6 +79,8 @@ Route createHeroAnimationRoute(Widget screen) {
   );
 }
 
+
+// Bottom Sheet With Blur Background
 Future<dynamic> commonBottomSheetWithBGBlur<T>({required BuildContext context, required Widget screen, double? radius}) async {
   commonHideKeyboard(context);
   return showCupertinoModalPopup<void>(
@@ -92,5 +98,7 @@ Future<dynamic> commonBottomSheetWithBGBlur<T>({required BuildContext context, r
       ),
     ),
   );
+
+
 }
 

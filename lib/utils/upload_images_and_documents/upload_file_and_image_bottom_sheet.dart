@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/app_colors.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/app_icons.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/app_string.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/app_text_style.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/constant_variables.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/extensions/int_extensions.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/extensions/widget_extensions.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/upload_images_and_documents/image_picker_from.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/upload_images_and_documents/pick_multiple_files.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/upload_images_and_documents/picked_images_and_documents_model.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'app_colors.dart';
-import 'app_icons.dart';
-import 'app_string.dart';
-import 'app_text_style.dart';
-import 'constant_variables.dart';
-import 'upload_images_and_documents/image_picker_from.dart';
-import 'upload_images_and_documents/pick_multiple_files.dart';
-import 'upload_images_and_documents/picked_images_and_documents_model.dart';
+
 
 class UploadFileAndImageBottomSheet extends StatefulWidget {
   const UploadFileAndImageBottomSheet({super.key});
 
   @override
-  State<UploadFileAndImageBottomSheet> createState() =>
-      _UploadFileAndImageBottomSheetState();
+  State<UploadFileAndImageBottomSheet> createState() => _UploadFileAndImageBottomSheetState();
 }
 
 class _UploadFileAndImageBottomSheetState extends State<UploadFileAndImageBottomSheet> {
@@ -49,9 +49,7 @@ class _UploadFileAndImageBottomSheetState extends State<UploadFileAndImageBottom
                 InkWell(
                   onTap: () async {
                     if (!context.mounted) return;
-
                     dynamic result;
-
                     switch (i) {
                       case 0:
                         result = await ImagePickerFrom.fromCamera();
@@ -83,10 +81,7 @@ class _UploadFileAndImageBottomSheetState extends State<UploadFileAndImageBottom
                   ),
                 ),
                 if (i != exitIcons.length - 1)
-                  const Divider(
-                      color: AppColors.dividerColor,
-                      indent: 55,
-                      thickness: 0.5),
+                  const Divider(color: AppColors.dividerColor, indent: 55, thickness: 0.5),
               ],
             ],
           ),

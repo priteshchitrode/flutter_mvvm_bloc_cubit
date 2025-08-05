@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-
-import 'app_colors.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/app_colors.dart';
 
 class AppThemeStyle {
   AppThemeStyle._();
 
+  // Overall App Theme
   static ThemeData appTheme = ThemeData(
     colorScheme: ColorScheme.fromSeed(
         seedColor: AppColors.scaffoldBackgroundColor,
@@ -24,6 +24,8 @@ class AppThemeStyle {
     ),
   );
 
+
+  // Time Picker Theme
   static TimePickerThemeData timePickerTheme = TimePickerThemeData(
     hourMinuteColor: AppColors.secondaryColor, // Hour & Minute background
     hourMinuteTextColor: Colors.white, // Hour & Minute text color

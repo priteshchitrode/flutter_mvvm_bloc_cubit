@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mvvm_bloc_cubit/data/model/result.dart';
+import 'package:flutter_mvvm_bloc_cubit/service/hasInternet/has_internet_connection.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/custom_log.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart' as geo;
-import 'hasInternet/has_internet_connection.dart';
 
 
 class LocationService {

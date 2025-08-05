@@ -8,7 +8,7 @@ import 'package:flutter_mvvm_bloc_cubit/utils/global_variables.dart';
 class AppButtonStyle {
   AppButtonStyle._();
 
-  /// Primary
+  // Primary
   static ButtonStyle primary = ElevatedButton.styleFrom(
     enableFeedback: true,
     elevation: 3.0,
@@ -21,19 +21,19 @@ class AppButtonStyle {
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(commonButtonRadius)),
   );
 
-  /// Disable
+  // Disable
   static ButtonStyle disableButton = primary.copyWith(
     backgroundColor: WidgetStateProperty.all(AppColors.deActiveButtonColor),
     elevation: WidgetStateProperty.all(0),
   );
 
-  /// Edit
+  // Edit
   static ButtonStyle editButton = primary.copyWith(
       elevation: WidgetStateProperty.all(0),
       padding: WidgetStateProperty.all(EdgeInsets.zero),
       fixedSize: WidgetStateProperty.all(const Size(80, 25)));
 
-  /// Secondary
+  // Secondary
   static ButtonStyle secondary = ElevatedButton.styleFrom(
       enableFeedback: true,
       splashFactory: NoSplash.splashFactory,
@@ -45,6 +45,7 @@ class AppButtonStyle {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(commonButtonRadius)),
   );
 
+  // Outline
   static ButtonStyle outline = OutlinedButton.styleFrom(
       enableFeedback: true,
       splashFactory: NoSplash.splashFactory,
@@ -56,6 +57,7 @@ class AppButtonStyle {
       side: const BorderSide(color: AppColors.secondaryColor, width: 1.5),
   );
 
+  // Logout
   static ButtonStyle logout = ElevatedButton.styleFrom(
     splashFactory: NoSplash.splashFactory,
     backgroundColor: Colors.transparent,
@@ -67,7 +69,7 @@ class AppButtonStyle {
 
   );
 
-  /// Icon Button
+  // Icon Button
   static ButtonStyle primaryIconButtonStyle = IconButton.styleFrom(
     enableFeedback: true,
     surfaceTintColor: AppColors.lightGreyColor,
@@ -75,6 +77,7 @@ class AppButtonStyle {
     backgroundColor: AppColors.lightGreyIconBackgroundColor,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
   );
+
 
   static ButtonStyle primaryIconButtonStyleWithWhiteBackground = IconButton.styleFrom(
     enableFeedback: true,
@@ -84,7 +87,7 @@ class AppButtonStyle {
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
   );
 
-  /// Active Icon Button
+  // Active Icon Button
   static ButtonStyle activeIconButtonStyle = IconButton.styleFrom(
     enableFeedback: true,
     surfaceTintColor: AppColors.lightGreyColor,
@@ -95,7 +98,7 @@ class AppButtonStyle {
   );
 
 
-  /// Text Button Style
+  // Text Button Style
   static ButtonStyle textButtonStyle = TextButton.styleFrom(
     enableFeedback: true,
     splashFactory: NoSplash.splashFactory,
@@ -113,4 +116,5 @@ class AppButtonStyle {
     fixedSize: const Size(160, commonTextButtonHeight),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(commonButtonRadius)),
   );
+
 }

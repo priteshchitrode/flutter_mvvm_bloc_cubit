@@ -68,7 +68,6 @@ class NotificationService{
             provisional: false,
             criticalAlert: false,
           );
-
       if (settings.authorizationStatus == AuthorizationStatus.authorized) {
         AwesomeNotifications().requestPermissionToSendNotifications();
       } else if (settings.authorizationStatus == AuthorizationStatus.provisional) {
@@ -166,6 +165,7 @@ class NotificationService{
     }
   }
 
+
   /// Firebase Messaging BackgroundHandler
   static Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
     try {
@@ -180,6 +180,7 @@ class NotificationService{
     }
   }
 
+
   /// On Click Foreground State
   @pragma("vm:entry-point")
   static Future<void> _receivedNotification(ReceivedAction receivedAction) async {
@@ -189,11 +190,11 @@ class NotificationService{
       if(payload.route != null){
         //navigatorKey.currentState?.context.push(payload.route!);
       }
-
     } catch (e) {
       CustomLog.error(NotificationService, "Foreground click error", e);
     }
   }
+
 
   /// On Click Terminate State
   Future<void> _onClickTerminateState() async {
@@ -208,6 +209,7 @@ class NotificationService{
       CustomLog.error(NotificationService, "Terminate State Notification error", e);
     }
   }
+
 
   /// On Click Background State
   Future<void> _onClickBackgroundState() async {

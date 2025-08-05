@@ -5,7 +5,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_mvvm_bloc_cubit/dependency_injection/locator.dart';
 
 
-/// --- App Initialization Function ---
+///  App Initialization Function
 Future<void> initializeApp() async {
   WidgetsFlutterBinding.ensureInitialized();
 
