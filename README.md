@@ -2,9 +2,30 @@
 
 A scalable Flutter architecture that combines MVVM (Model-View-ViewModel), BLoC & Cubit state management, and follows the SOLID principles to maintain clean, maintainable, and testable code.
 
-## 📂 Project Structure
+
+## 💡 SOLID Principles Applied
 
 This project follows a clean, layered architecture:
+
+| Principle                    | Description                                                             |
+|-----------------------------|-------------------------------------------------------------------------|
+| **S - Single Responsibility** | Each class/component has one clear responsibility                       |
+| **O - Open/Closed**           | Entities are open for extension, closed for modification                |
+| **L - Liskov Substitution**   | Interfaces implemented by substitutable components                      |
+| **I - Interface Segregation** | No client is forced to depend on unused methods                         |
+| **D - Dependency Inversion**  | High-level modules depend on abstractions, not concretions              |
+
+
+## 📦 Project Structure
+
+This project follows a clean, layered architecture:
+
+- MVVM design pattern for clear separation of concerns
+- BLoC & Cubit for reactive state management
+- Strict adherence to SOLID principles
+- Dependency Injection using get_it
+- Scalable and testable folder structure
+- Error handling using sealed UIState pattern
 
 ```text
 lib/
@@ -79,32 +100,6 @@ lib/
 │
 └── main.dart                         # Application entry point
 
-
-
-
-## 📦 Project Structure
-
-This project follows a clean, layered architecture:
-
-- MVVM design pattern for clear separation of concerns
-- BLoC & Cubit for reactive state management
-- Strict adherence to SOLID principles
-- Dependency Injection using get_it
-- Scalable and testable folder structure
-- Error handling using sealed UIState pattern
-
-
-
-## 💡 SOLID Principles Applied
-
-This project follows a clean, layered architecture:
-
-Principle	                      Description
-S - Single Responsibility	      Each class/component has one clear responsibility
-O - Open/Closed	                  Entities are open for extension, closed for modification
-L - Liskov Substitution	          Interfaces implemented by substitutable components
-I - Interface Segregation	      No client is forced to depend on unused methods
-D - Dependency Inversion	      High-level modules depend on abstractions, not concretions
 
 
 
