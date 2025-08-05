@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-// int Extensions
 extension IntExtensions on int? {
 
   /// Leaves given height of space

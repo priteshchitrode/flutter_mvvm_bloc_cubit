@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/app_colors.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/app_text_style.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/common_widgets.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/constant_variables.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/extensions/int_extensions.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/extensions/string_extensions.dart';
-import 'constant_variables.dart';
 
 class AppDropdown extends StatelessWidget {
   final String? labelText;

@@ -11,13 +11,9 @@ class ApiUrls {
   static String get _baseUrl => "$_fetchUrl$_path";
   static String  baseUrl = _baseUrl;
 
-  // Path
-  static String get _visitorPath => "/visitor";
-  static String get _residentPath => "/resident";
-  static String get _securityPath => "/security";
-
-  // Resident api end point
+  // End Point
   static String sendOtpWithPhoneNumber = "$_baseUrl/otpSend/phoneNumber";
+  static String login = "$_baseUrl/login";
 
 
 }

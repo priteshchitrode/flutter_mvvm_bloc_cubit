@@ -3,15 +3,14 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_mvvm_bloc_cubit/data/model/result.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/app_colors.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/app_string.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/app_theme_style.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/custom_log.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/extensions/string_extensions.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'app_colors.dart';
 import 'app_global_variables.dart';
-import 'app_string.dart';
-import 'app_theme_style.dart';
-import 'custom_log.dart';
-import 'toast_messages.dart';
 
 
 /// Field Focus change
@@ -173,7 +172,7 @@ Future<String?> commonHourPicker(BuildContext context) async {
   );
 
   try {
-    print("picked $picked");
+    debugPrint("picked $picked");
     if (picked != null) {
       final now = DateTime.now();
       final formattedHour = DateFormat('hh a').format(
@@ -262,6 +261,8 @@ String getErrorMsg({required ErrorType errorType}) {
   }
 }
 
+
+/// Check is Numeric
 bool isNumeric(String? s) {
   if(s == null) {
     return false;
@@ -269,6 +270,7 @@ bool isNumeric(String? s) {
   return double.tryParse(s) != null;
 }
 
+/// Pop To Push
 Future popToPush(BuildContext context) async {
   Navigator.of(context).pop();
   await Future.delayed(const Duration(milliseconds: 300));

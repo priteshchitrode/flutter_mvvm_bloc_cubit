@@ -1,13 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/app_colors.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/app_text_style.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/common_functions.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/common_widgets.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/extensions/int_extensions.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/extensions/string_extensions.dart';
-
-import 'app_colors.dart';
-import 'app_text_style.dart';
-import 'common_functions.dart';
-import 'common_widgets.dart';
 
 
 class AppTextField extends StatelessWidget {

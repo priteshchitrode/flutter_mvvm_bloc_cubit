@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/app_colors.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/app_icons.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/app_string.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/app_text_style.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/extensions/int_extensions.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'app_colors.dart';
-import 'app_icons.dart';
-import 'app_string.dart';
-import 'app_text_style.dart';
+
 
 class NoSearchResultFoundWidget extends StatelessWidget {
   final String value;

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/app_colors.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/common_widgets.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/constant_variables.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/extensions/int_extensions.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/extensions/widget_extensions.dart';
 
-import 'app_colors.dart';
-import 'common_widgets.dart';
-import 'constant_variables.dart';
 
 class TabBarDelegate extends SliverPersistentHeaderDelegate {
   final TabBar tabBar;

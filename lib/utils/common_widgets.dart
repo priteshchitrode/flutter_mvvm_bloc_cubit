@@ -3,23 +3,23 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mvvm_bloc_cubit/data/model/result.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/app_button.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/app_button_style.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/app_colors.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/app_image.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/app_string.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/app_text_style.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/common_functions.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/constant_variables.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/extensions/int_extensions.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/extensions/string_extensions.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/extensions/widget_extensions.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shimmer/shimmer.dart';
-import 'app_button.dart';
-import 'app_button_style.dart';
-import 'app_colors.dart';
-import 'app_icons.dart';
-import 'app_image.dart';
-import 'app_string.dart';
-import 'app_text_style.dart';
-import 'common_functions.dart';
-import 'constant_variables.dart';
 
-/// Input Decoration
+
+// Input Decoration
 InputDecoration commonInputDecoration({String? hintText, Color? suffixIconColor, dynamic suffixIcon, Function()? suffixOnTap, Widget? dateTime, Widget? prefixIcon, Color? fillColor,  Color? focusColor, bool? enableBorder = true, TextStyle? hintStyle}) {
 
   Widget? getIconWidget(){
@@ -67,10 +67,10 @@ InputDecoration commonInputDecoration({String? hintText, Color? suffixIconColor,
     errorBorder: OutlineInputBorder(borderSide: BorderSide(color: enableBorder == false ? Colors.transparent : Colors.red), borderRadius: BorderRadius.circular(borderRadius)),
     focusedErrorBorder: OutlineInputBorder(borderSide: BorderSide(color: enableBorder == false ? Colors.transparent : Colors.red), borderRadius: BorderRadius.circular(borderRadius)),
   );
-
 }
 
-/// Lottie Animation
+
+// Lottie Animation
 Widget lottieAnimation({required String file, bool? repeat, double? width}) {
   return Lottie.asset(
     file,
@@ -81,7 +81,8 @@ Widget lottieAnimation({required String file, bool? repeat, double? width}) {
   );
 }
 
-/// Common cache network image
+
+// Common cache network image
 Widget commonCacheNetworkImage({required String path, dynamic errorImage, double? height, double? width, BoxFit? fit, double? radius}) {
 
   Widget? getIconWidget(){
@@ -142,22 +143,23 @@ Widget commonCacheNetworkImage({required String path, dynamic errorImage, double
       debugPrint("Invalid Image URL: $path");
     }
   }
-
   return errorWidget();
-
 }
 
-/// Container decoration
+
+// Container decoration
 BoxDecoration commonContainerDecoration({bool? shadow, Color? color, Color? shadowColor, BorderRadiusGeometry? borderRadius, Color? borderColor, double? borderWidth, double? blurRadius, Gradient? gradient}) {
   return BoxDecoration(
       color: color ?? Colors.white,
       gradient: gradient,
       borderRadius: borderRadius ?? BorderRadius.circular(commonRadius),
       border: Border.all(color: borderColor ?? Colors.transparent, width: borderWidth ?? 1.0),
-      boxShadow: shadow == true ? [BoxShadow(color: shadowColor ?? AppColors.shadowColor, blurRadius: blurRadius ?? 5.0)] : []);
+      boxShadow: shadow == true ? [BoxShadow(color: shadowColor ?? AppColors.shadowColor, blurRadius: blurRadius ?? 5.0)] : [],
+  );
 }
 
-/// Generic error widget
+
+// Generic error widget
 Widget genericErrorWidget({ErrorType? error, void Function()? onRefresh, void Function()? goBack}) {
   log("Error Type : ${getErrorMsg(errorType: error ?? GenericError())}");
   return Column(
@@ -174,13 +176,12 @@ Widget genericErrorWidget({ErrorType? error, void Function()? onRefresh, void Fu
       20.height,
       if(goBack != null)
       AppButton(title: AppString.label.back, onPressed: goBack),
-
     ],
   ).center().isAnimate().paddingAll(commonSafeAreaPadding);
 }
 
 
-/// Common Detail Widget
+// Common Detail Widget
 Widget commonDetailWidget({required String title, required String subTitle, bool? isVertical, TextStyle? subTitleTextStyle}) {
   if (isVertical == null || isVertical == false) {
     return Row(
@@ -202,7 +203,8 @@ Widget commonDetailWidget({required String title, required String subTitle, bool
   }
 }
 
-/// Common List Tile
+
+// Common List Tile
 Widget commonListTile({required String title, TextStyle? titleStyle,String? subTitle, Color? titleColor, Color? iconBgColor, Color? iconColor, String? iconSvg, void Function()? onTap, Widget? trailing}) {
   return ListTile(
     contentPadding: EdgeInsets.zero,
@@ -220,11 +222,13 @@ Widget commonListTile({required String title, TextStyle? titleStyle,String? subT
   );
 }
 
-/// Common divider
+// Common divider
 Widget commonDivider({double? height, Color? dividerColor, double? indent, double? endIndent }) {
   return Divider(color: dividerColor ?? AppColors.lightDividerColor, height: height ?? 30, indent: indent, endIndent: endIndent);
 }
 
+
+// Doc Grid UI
 Widget docsGridDesign(String docType) {
   return Material(
     elevation: 0.0,
@@ -242,10 +246,12 @@ Widget iconsGridDesign(icon) {
   return Icon(icon, color: icon == CupertinoIcons.photo_on_rectangle ? AppColors.greyIconColor : AppColors.greyIconColor, size: 20);
 }
 
-/// App Loader
+
+// App Loader
 Widget appLoader() {
   return const CircularProgressIndicator(strokeCap: StrokeCap.round).paddingBottom(60).center();
 }
+
 
 /// Navigate to Token fail screen
 // Widget navigateToTokenExpireScreen(BuildContext context){
@@ -255,20 +261,4 @@ Widget appLoader() {
 //   return Container();
 // }
 
-/// Banner Error Widget
-Widget bannerErrorWidget(BuildContext context){
-  return Container(
-    color: AppColors.extraLightBackgroundGray,
-    width: double.infinity,
-    height: commonBannerHeight,
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        SvgPicture.asset(AppIcons.svg.infoCircleOutline, width: 30, colorFilter: AppColors.svg(AppColors.greyIconColor)),
-        5.height,
-        Text(AppString.error.somethingWentWrong, style: AppTextStyle.body3GreyColor)
-      ],
-    ),
-  );
-}
+

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_mvvm_bloc_cubit/core/app_initializer.dart';
+import 'package:flutter_mvvm_bloc_cubit/multi_bloc.dart';
+import 'package:flutter_mvvm_bloc_cubit/routing/app_routes.dart';
+import 'package:flutter_mvvm_bloc_cubit/service/hasInternet/has_internet_connection.dart';
+import 'package:flutter_mvvm_bloc_cubit/utils/app_theme_style.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/extensions/state_extension.dart';
-import 'core/app_initializer.dart';
-import 'multi_bloc.dart';
-import 'routing/app_routes.dart';
-import 'service/hasInternet/has_internet_connection.dart';
-import 'utils/app_theme_style.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
