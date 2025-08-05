@@ -3,6 +3,8 @@
 A scalable Flutter architecture that combines MVVM (Model-View-ViewModel), BLoC & Cubit state management, and follows the SOLID principles to maintain clean, maintainable, and testable code.
 
 
+
+
 ## 💡 SOLID Principles Applied
 
 This project follows a clean, layered architecture:
@@ -14,6 +16,10 @@ This project follows a clean, layered architecture:
 | **L - Liskov Substitution**   | Interfaces implemented by substitutable components                      |
 | **I - Interface Segregation** | No client is forced to depend on unused methods                         |
 | **D - Dependency Inversion**  | High-level modules depend on abstractions, not concretions              |
+
+
+
+
 
 
 ## 📦 Project Structure
