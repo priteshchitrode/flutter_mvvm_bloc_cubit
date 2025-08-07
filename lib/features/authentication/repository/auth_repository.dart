@@ -1,6 +1,6 @@
 import 'package:flutter_mvvm_bloc_cubit/data/model/result.dart';
 import 'package:flutter_mvvm_bloc_cubit/data/storage/secured_shared_preferences.dart';
-import 'package:flutter_mvvm_bloc_cubit/service/pushNotification/notification_service.dart';
+import 'package:flutter_mvvm_bloc_cubit/service/push_notification/notification_service.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/app_string.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/custom_log.dart';
 

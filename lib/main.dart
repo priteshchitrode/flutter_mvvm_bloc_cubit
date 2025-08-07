@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
     super.initState();
   }
 
-  initFun() => frameCallback(() async {
+  void initFun() => frameCallback(() async {
     await HasInternetConnection().checkConnectivity();
     // await authRepo.signOut();
   });
