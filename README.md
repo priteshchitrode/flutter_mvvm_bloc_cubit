@@ -22,8 +22,12 @@ This project follows a clean, layered architecture:
 | **D - Dependency Inversion**  | High-level modules depend on abstractions, not concretions              |
 
 
-
-
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 
 
 ## 📦 Project Structure
@@ -36,6 +40,9 @@ This project follows a clean, layered architecture:
 - Dependency Injection using get_it
 - Scalable and testable folder structure
 - Error handling using sealed UIState pattern
+
+&nbsp;
+&nbsp;
 
 ```text
 lib/
@@ -111,6 +118,12 @@ lib/
 └── main.dart                         # Application entry point
 ```
 
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 
 
 ## 🧩 Asset Management & Icon Configuration
@@ -118,7 +131,12 @@ lib/
 Assets are well-organized in the assets/icons/ directory and are referenced through a centralized Dart file, ensuring clean code, easy access, and consistency across the app.
 This Flutter project adheres strictly to naming and structural conventions to ensure scalability and maintainability.
 
-
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 
 ## 🎨 Folder Structure: assets/icons/
 
@@ -136,10 +154,13 @@ assets/
         ├── close_circle_outline.svg
 ```  
 
-✅ Dart class filenames should be in snake_case.dart (e.g., app_icons.dart)
-✅ Folder names should be in snake_case/ (e.g., utils/, features/, etc.)
-✅ Asset files should use snake_case
-✅ Dart variable names should follow camelCase
+&nbsp;
+&nbsp;
+
+- Dart class filenames should be in snake_case.dart (e.g., app_icons.dart)
+- Folder names should be in snake_case/ (e.g., utils/, features/, etc.)
+- Asset files should use snake_case
+- Dart variable names should follow camelCase
 
 
 
