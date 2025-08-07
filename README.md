@@ -13,8 +13,8 @@ A scalable Flutter architecture that combines MVVM (Model-View-ViewModel), BLoC 
 
 This project follows a clean, layered architecture:
 
-| Principle                    | Description                                                             |
-|-----------------------------|-------------------------------------------------------------------------|
+| Principle                     | Description                                                             |
+|-------------------------------|-------------------------------------------------------------------------|
 | **S - Single Responsibility** | Each class/component has one clear responsibility                       |
 | **O - Open/Closed**           | Entities are open for extension, closed for modification                |
 | **L - Liskov Substitution**   | Interfaces implemented by substitutable components                      |
