@@ -2,8 +2,12 @@
 
 A scalable Flutter architecture that combines MVVM (Model-View-ViewModel), BLoC & Cubit state management, and follows the SOLID principles to maintain clean, maintainable, and testable code.
 
-
-
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 
 ## 💡 SOLID Principles Applied
 
