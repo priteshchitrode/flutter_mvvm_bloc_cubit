@@ -164,7 +164,7 @@ A self-contained module responsible for login, signup, OTP, password reset, etc.
 | **`service/`**     | Contains classes responsible for actual **API calls or business logic**.<br>🔹 e.g., `AuthService`, `FirebaseAuthService`           |
 | **`view/`**        | UI layer: Screens, pages, widgets used to build the authentication flow.<br>🔹 e.g., `login_screen.dart`, `otp_widget.dart`         |
 
-
+&nbsp;
 
 💡 Example Workflow (Login Feature)
 ```text
