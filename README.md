@@ -42,7 +42,6 @@ This project follows a clean, layered architecture:
 - Error handling using sealed UIState pattern
 
 &nbsp;
-&nbsp;
 
 ```text
 lib/
@@ -154,7 +153,6 @@ assets/
         ├── close_circle_outline.svg
 ```  
 
-&nbsp;
 &nbsp;
 
 - Dart class filenames should be in snake_case.dart (e.g., app_icons.dart)
