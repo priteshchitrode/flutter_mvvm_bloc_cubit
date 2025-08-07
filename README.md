@@ -1,5 +1,4 @@
 # 🚀 Flutter MVVM BLoC & Cubit Architecture (Using SOLID Principles)
-
 A scalable Flutter architecture that combines MVVM (Model-View-ViewModel), BLoC & Cubit state management, and follows the SOLID principles to maintain clean, maintainable, and testable code.
 
 &nbsp;
@@ -10,7 +9,6 @@ A scalable Flutter architecture that combines MVVM (Model-View-ViewModel), BLoC 
 &nbsp;
 
 ## 💡 SOLID Principles Applied
-
 This project follows a clean, layered architecture:
 
 | Principle                     | Description                                                             |
@@ -31,7 +29,6 @@ This project follows a clean, layered architecture:
 
 
 ## 📦 Project Structure
-
 This project follows a clean, layered architecture:
 
 - MVVM design pattern for clear separation of concerns
