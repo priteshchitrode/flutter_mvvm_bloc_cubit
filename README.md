@@ -105,6 +105,37 @@ lib/
 │   └── app_string.dart             # Centralized string constants
 │
 └── main.dart                         # Application entry point
+```
+
+
+
+## 🧩 Asset Management & Icon Configuration
+
+Assets are well-organized in the assets/icons/ directory and are referenced through a centralized Dart file, ensuring clean code, easy access, and consistency across the app.
+This Flutter project adheres strictly to naming and structural conventions to ensure scalability and maintainability.
+
+
+
+## 🎨 Folder Structure: assets/icons/
+
+All asset files follow the snake_case naming convention:
+
+```text
+assets/
+└── icons/
+    ├── png/
+    │   └── image_break.png
+    ├── gif/
+    └── svg/
+        ├── camera.svg
+        ├── clear_outline.svg
+        ├── close_circle_outline.svg
+```  
+
+✅ Dart class filenames should be in snake_case.dart (e.g., app_icons.dart)
+✅ Folder names should be in snake_case/ (e.g., utils/, features/, etc.)
+✅ Asset files should use snake_case
+✅ Dart variable names should follow camelCase
 
 
 
