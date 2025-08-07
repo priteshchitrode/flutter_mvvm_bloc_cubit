@@ -41,7 +41,6 @@ This project follows a clean, layered architecture:
 - Scalable and testable folder structure
 - Error handling using sealed UIState pattern
 
-&nbsp;
 
 ```text
 lib/
@@ -87,7 +86,7 @@ lib/
 │
 ├── service/                          # Independent services used across the app
 │   ├── hasInternet/                 # Connectivity check service
-│   └── pushNotification/           # Push notification config, payload, display logic
+│   └── push_notification/           # Push notification config, payload, display logic
 │       ├── notification_helper.dart
 │       ├── notification_payload.dart
 │       ├── notification_service.dart
@@ -96,7 +95,7 @@ lib/
 ├── utils/                            # Reusable UI components and extensions
 │   ├── common_dialog_view/         # Custom dialogs
 │   ├── extensions/                 # String, DateTime, Iterable extensions, etc.
-│   ├── textFieldInputFormatter/    # Input formatting logic
+│   ├── text_field_input_formatter/    # Input formatting logic
 │   ├── upload_images_and_documents/ # Uploading utility
 │   ├── app_application_bar.dart    # Custom app bar widget
 │   ├── app_bottom_sheet_body.dart  # Bottom sheet UI
@@ -126,7 +125,6 @@ lib/
 
 
 ## 🧩 Asset Management & Icon Configuration
-
 Assets are well-organized in the assets/icons/ directory and are referenced through a centralized Dart file, ensuring clean code, easy access, and consistency across the app.
 This Flutter project adheres strictly to naming and structural conventions to ensure scalability and maintainability.
 
@@ -138,7 +136,6 @@ This Flutter project adheres strictly to naming and structural conventions to en
 &nbsp;
 
 ## 🎨 Folder Structure: assets/icons/
-
 All asset files follow the snake_case naming convention:
 
 ```text
@@ -151,9 +148,7 @@ assets/
         ├── camera.svg
         ├── clear_outline.svg
         ├── close_circle_outline.svg
-```  
-
-&nbsp;
+```
 
 - Dart class filenames should be in snake_case.dart (e.g., app_icons.dart)
 - Folder names should be in snake_case/ (e.g., utils/, features/, etc.)
