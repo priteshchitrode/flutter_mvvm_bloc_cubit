@@ -152,6 +152,73 @@ assets/
 - Asset files should use snake_case
 - Dart variable names should follow camelCase
 
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 
+## 📁 Feature Folder Structure Explained
+🔷 Root: features/
+Organizes the app by independent modules, making it scalable and maintainable.
 
+Example:
+```text
+features/
+├── authentication/
+└── splash/
+``` 
+Each feature contains its own logic, views, state, and service layer, keeping responsibilities isolated.
+
+&nbsp;
+&nbsp;
+
+📁 authentication/
+A self-contained module responsible for login, signup, OTP, password reset, etc.
+
+✅ Subfolders:
+
+```text
+| Folder             | Purpose                                                                                                                             |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **`api_request/`** | Contains **DTO (Data Transfer Object)** models or request body classes for API calls.<br>🔹 e.g., `LoginRequest`, `RegisterPayload` |
+| **`cubit/`**       | Houses **Cubit** or **Bloc** classes for state management.<br>🔹 e.g., `AuthCubit`, `LoginState`                                    |
+| **`model/`**       | Contains response models or shared business models.<br>🔹 e.g., `UserModel`, `LoginResponse`                                        |
+| **`repository/`**  | Defines abstract interfaces and concrete implementations that call services.<br>🔹 e.g., `IAuthRepository`, `AuthRepositoryImpl`    |
+| **`service/`**     | Contains classes responsible for actual **API calls or business logic**.<br>🔹 e.g., `AuthService`, `FirebaseAuthService`           |
+| **`view/`**        | UI layer: Screens, pages, widgets used to build the authentication flow.<br>🔹 e.g., `login_screen.dart`, `otp_widget.dart`         |
+``` 
+
+&nbsp;
+&nbsp;
+
+💡 Example Workflow (Login Feature)
+```text
+1. View (login_screen.dart)
+   ⬇ calls
+2. Cubit (auth_cubit.dart)
+   ⬇ calls
+3. Repository (auth_repository.dart)
+   ⬇ calls
+4. Service (auth_service.dart)
+   ⬇ calls
+5. Sends API Request (login_request.dart)
+   ⬅ Receives Response (login_response.dart)
+6. Model parsed and handled
+``` 
+This follows the MVVM + BLoC pattern, where View → ViewModel (Cubit) → Repository → Service → API/Local
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+## 🧱 Benefits of This Structure
+- Scalable: Easy to add new features without affecting others.
+- Testable: You can test cubit, service, and repository independently.
+- Maintainable: Clean separation of responsibilities aligns with SRP from SOLID.
+- Extensible: New features (like profile/, settings/) can follow the same structure.
 
