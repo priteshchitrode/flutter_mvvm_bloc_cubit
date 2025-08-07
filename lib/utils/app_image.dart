@@ -7,23 +7,23 @@ abstract class AppImage{
 }
 
 class PngImages{
+  // Path
   static const String _pngImageBasePath = "assets/images/png/";
-  final String appLogoPng = "${_pngImageBasePath}appLogo.png";
-  final String userProfileError = "${_pngImageBasePath}userPlaceHolder.png";
-  final String backgroundImagePng = "${_pngImageBasePath}backgroundImage.png";
-  final String femalePlaceHolder = "${_pngImageBasePath}femalePlaceHolder.png";
-  final String malePlaceholder = "${_pngImageBasePath}malePlaceHolder.png";
-  final String brokenImage = "${_pngImageBasePath}brokenImage.png";
+  // Base
+  final String userPlaceHolder = "${_pngImageBasePath}user_place_holder.png";
+  final String brokenImage = "${_pngImageBasePath}broken_image.png";
 }
 
 class SvgImages{
+  // Path
   static const String _svgImageBasePath = "assets/images/svg/";
-  final String appLogo = "${_svgImageBasePath}appLogo.svg";
+  // Base
   final String noSearchFound = "${_svgImageBasePath}searchNotFound.svg";
 
 }
 
 class JpgImage {
+  // Path
   static const String _jpgImageBasePath = "assets/images/jpg/";
 
 }

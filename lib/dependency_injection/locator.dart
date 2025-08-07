@@ -9,7 +9,7 @@ import 'package:flutter_mvvm_bloc_cubit/features/authentication/service/login_se
 import 'package:flutter_mvvm_bloc_cubit/features/splash/splash_repository.dart';
 import 'package:flutter_mvvm_bloc_cubit/features/splash/splash_service.dart';
 import 'package:flutter_mvvm_bloc_cubit/features/splash/splash_view_mode.dart';
-import 'package:flutter_mvvm_bloc_cubit/service/pushNotification/notification_service.dart';
+import 'package:flutter_mvvm_bloc_cubit/service/push_notification/notification_service.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/custom_log.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';

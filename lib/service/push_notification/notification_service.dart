@@ -6,9 +6,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mvvm_bloc_cubit/data/storage/secured_shared_preferences.dart';
-import 'package:flutter_mvvm_bloc_cubit/service/pushNotification/notification_helper.dart';
-import 'package:flutter_mvvm_bloc_cubit/service/pushNotification/notification_payload.dart';
-import 'package:flutter_mvvm_bloc_cubit/service/pushNotification/notification_view.dart';
+import 'package:flutter_mvvm_bloc_cubit/service/push_notification/notification_helper.dart';
+import 'package:flutter_mvvm_bloc_cubit/service/push_notification/notification_payload.dart';
+import 'package:flutter_mvvm_bloc_cubit/service/push_notification/notification_view.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/app_string.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/custom_log.dart';
 

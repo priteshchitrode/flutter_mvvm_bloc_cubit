@@ -8,9 +8,10 @@ class AppIcons {
 
 /// PNG Icons
 class PngIcons {
-  // Base
+  // Path
   static const String _pngBasePath = "assets/icons/png/";
-  final String brokenImage = "${_pngBasePath}imageBreak.png";
+  // Base
+  final String brokenImage = "${_pngBasePath}image_break.png";
 
 }
 
@@ -21,18 +22,19 @@ class GifIcons {
 
 /// SVG Icons
 class SvgIcons {
-  // Base
+  // Path
   static const String _svgBasePath = "assets/icons/svg/";
+  // Base
   final String search = "${_svgBasePath}search.svg";
-  final String goBack = "${_svgBasePath}goBack.svg";
-  final String galleryAdd = "${_svgBasePath}galleryAdd.svg";
+  final String goBack = "${_svgBasePath}go_back.svg";
+  final String galleryAdd = "${_svgBasePath}gallery_add.svg";
   final String camera = "${_svgBasePath}camera.svg";
   final String gallery = "${_svgBasePath}gallery.svg";
-  final String clearOutline = "${_svgBasePath}clearOutline.svg";
-
-  // App
-  final String searchOutline = "${_svgBasePath}searchOutline.svg";
-  final String searchFill = "${_svgBasePath}searchFill.svg";
-  final String notificationOutline = "${_svgBasePath}notificationOutline.svg";
+  final String clearOutline = "${_svgBasePath}clear_outline.svg";
+  final String closeCircleOutline = "${_svgBasePath}close_circle_outline.svg";
+  final String documentUpload = "${_svgBasePath}document_upload.svg";
+  final String forwardArrowOutline = "${_svgBasePath}forward_arrow_outline.svg";
+  final String notificationOutline = "${_svgBasePath}notification_outline.svg";
+  final String searchOutline = "${_svgBasePath}search_outline.svg";
 }
 

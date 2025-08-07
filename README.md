@@ -1,16 +1,18 @@
 # 🚀 Flutter MVVM BLoC & Cubit Architecture (Using SOLID Principles)
-
 A scalable Flutter architecture that combines MVVM (Model-View-ViewModel), BLoC & Cubit state management, and follows the SOLID principles to maintain clean, maintainable, and testable code.
 
-
-
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 
 ## 💡 SOLID Principles Applied
-
 This project follows a clean, layered architecture:
 
-| Principle                    | Description                                                             |
-|-----------------------------|-------------------------------------------------------------------------|
+| Principle                     | Description                                                             |
+|-------------------------------|-------------------------------------------------------------------------|
 | **S - Single Responsibility** | Each class/component has one clear responsibility                       |
 | **O - Open/Closed**           | Entities are open for extension, closed for modification                |
 | **L - Liskov Substitution**   | Interfaces implemented by substitutable components                      |
@@ -18,12 +20,15 @@ This project follows a clean, layered architecture:
 | **D - Dependency Inversion**  | High-level modules depend on abstractions, not concretions              |
 
 
-
-
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 
 
 ## 📦 Project Structure
-
 This project follows a clean, layered architecture:
 
 - MVVM design pattern for clear separation of concerns
@@ -32,6 +37,7 @@ This project follows a clean, layered architecture:
 - Dependency Injection using get_it
 - Scalable and testable folder structure
 - Error handling using sealed UIState pattern
+
 
 ```text
 lib/
@@ -77,7 +83,7 @@ lib/
 │
 ├── service/                          # Independent services used across the app
 │   ├── hasInternet/                 # Connectivity check service
-│   └── pushNotification/           # Push notification config, payload, display logic
+│   └── push_notification/           # Push notification config, payload, display logic
 │       ├── notification_helper.dart
 │       ├── notification_payload.dart
 │       ├── notification_service.dart
@@ -86,7 +92,7 @@ lib/
 ├── utils/                            # Reusable UI components and extensions
 │   ├── common_dialog_view/         # Custom dialogs
 │   ├── extensions/                 # String, DateTime, Iterable extensions, etc.
-│   ├── textFieldInputFormatter/    # Input formatting logic
+│   ├── text_field_input_formatter/    # Input formatting logic
 │   ├── upload_images_and_documents/ # Uploading utility
 │   ├── app_application_bar.dart    # Custom app bar widget
 │   ├── app_bottom_sheet_body.dart  # Bottom sheet UI
@@ -105,6 +111,46 @@ lib/
 │   └── app_string.dart             # Centralized string constants
 │
 └── main.dart                         # Application entry point
+```
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+
+## 🧩 Asset Management & Icon Configuration
+Assets are well-organized in the assets/icons/ directory and are referenced through a centralized Dart file, ensuring clean code, easy access, and consistency across the app.
+This Flutter project adheres strictly to naming and structural conventions to ensure scalability and maintainability.
+
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+## 🎨 Folder Structure: assets/icons/
+All asset files follow the snake_case naming convention:
+
+```text
+assets/
+└── icons/
+    ├── png/
+    │   └── image_break.png
+    ├── gif/
+    └── svg/
+        ├── camera.svg
+        ├── clear_outline.svg
+        ├── close_circle_outline.svg
+```
+
+- Dart class filenames should be in snake_case.dart (e.g., app_icons.dart)
+- Folder names should be in snake_case/ (e.g., utils/, features/, etc.)
+- Asset files should use snake_case
+- Dart variable names should follow camelCase
 
 
 
