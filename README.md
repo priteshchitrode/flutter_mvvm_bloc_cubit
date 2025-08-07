@@ -148,7 +148,7 @@ features/
 ``` 
 Each feature contains its own logic, views, state, and service layer, keeping responsibilities isolated.
 
-
+&nbsp;
 
 📁 authentication/
 A self-contained module responsible for login, signup, OTP, password reset, etc.
