@@ -215,6 +215,24 @@ This follows the MVVM + BLoC pattern, where View → ViewModel (Cubit) → Repos
 &nbsp;
 &nbsp;
 &nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 
 ## 🧱 Benefits of This Structure
 - Scalable: Easy to add new features without affecting others.
