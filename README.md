@@ -2,11 +2,6 @@
 A scalable Flutter architecture that combines MVVM (Model-View-ViewModel), BLoC & Cubit state management, and follows the SOLID principles to maintain clean, maintainable, and testable code.
 
 &nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
 
 ## 💡 SOLID Principles Applied
 This project follows a clean, layered architecture:
@@ -21,12 +16,6 @@ This project follows a clean, layered architecture:
 
 
 &nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-
 
 ## 📦 Project Structure
 This project follows a clean, layered architecture:
@@ -114,11 +103,7 @@ lib/
 ```
 
 &nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
+
 
 
 ## 🧩 Asset Management & Icon Configuration
@@ -126,11 +111,7 @@ Assets are well-organized in the assets/icons/ directory and are referenced thro
 This Flutter project adheres strictly to naming and structural conventions to ensure scalability and maintainability.
 
 &nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
+
 
 ## 🎨 Folder Structure: assets/icons/
 All asset files follow the snake_case naming convention:
@@ -153,11 +134,7 @@ assets/
 - Dart variable names should follow camelCase
 
 &nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
+
 
 ## 📁 Feature Folder Structure Explained
 🔷 Root: features/
@@ -171,15 +148,13 @@ features/
 ``` 
 Each feature contains its own logic, views, state, and service layer, keeping responsibilities isolated.
 
-&nbsp;
-&nbsp;
+
 
 📁 authentication/
 A self-contained module responsible for login, signup, OTP, password reset, etc.
 
 ✅ Subfolders:
 
-```text
 | Folder             | Purpose                                                                                                                             |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
 | **`api_request/`** | Contains **DTO (Data Transfer Object)** models or request body classes for API calls.<br>🔹 e.g., `LoginRequest`, `RegisterPayload` |
@@ -188,10 +163,8 @@ A self-contained module responsible for login, signup, OTP, password reset, etc.
 | **`repository/`**  | Defines abstract interfaces and concrete implementations that call services.<br>🔹 e.g., `IAuthRepository`, `AuthRepositoryImpl`    |
 | **`service/`**     | Contains classes responsible for actual **API calls or business logic**.<br>🔹 e.g., `AuthService`, `FirebaseAuthService`           |
 | **`view/`**        | UI layer: Screens, pages, widgets used to build the authentication flow.<br>🔹 e.g., `login_screen.dart`, `otp_widget.dart`         |
-``` 
 
-&nbsp;
-&nbsp;
+
 
 💡 Example Workflow (Login Feature)
 ```text
@@ -209,29 +182,6 @@ A self-contained module responsible for login, signup, OTP, password reset, etc.
 ``` 
 This follows the MVVM + BLoC pattern, where View → ViewModel (Cubit) → Repository → Service → API/Local
 
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
 &nbsp;
 
 ## 🧱 Benefits of This Structure
