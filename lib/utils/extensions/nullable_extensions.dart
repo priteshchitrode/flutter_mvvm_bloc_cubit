@@ -82,39 +82,4 @@ extension NullableExtensions<T> on T? {
   }
 }
 
-void main() {
-  String? nullableString = null;
 
-  print('${nullableString.orNotAvailable()}'); // Output: ""
-  print(nullableString.orDefault('Default Value')); // Output: "Default Value"
-
-  nullableString = '  Hello  ';
-  print(nullableString.trimOrNull()); // Output: "Hello"
-
-  nullableString = null;
-  print(nullableString.isNullOrEmpty); // Output: true
-  print(nullableString.isNullOrBlank); // Output: true
-
-  List<int>? nullableList;
-
-  print(nullableList.orEmpty()); // Output: []
-  print(nullableList.orDefault([1, 2, 3])); // Output: [1, 2, 3]
-
-  nullableList = [4, 5, 6];
-  print(nullableList.isNullOrEmpty); // Output: false
-
-  int? nullableInt;
-  double? nullableDouble;
-
-  print(nullableInt.orZero()); // Output: 0
-  print(nullableInt.orDefault(42)); // Output: 42
-
-  nullableInt = 5;
-  print(nullableInt.isNullOrZero); // Output: false
-
-  print(nullableDouble.orZero()); // Output: 0.0
-  print(nullableDouble.orDefault(3.14)); // Output: 3.14
-
-  nullableDouble = 0.0;
-  print(nullableDouble.isNullOrZero); // Output: true
-}

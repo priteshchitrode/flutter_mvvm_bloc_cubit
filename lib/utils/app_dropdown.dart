@@ -19,7 +19,21 @@ class AppDropdown extends StatelessWidget {
   final Function(String?)? onChanged;
   final void Function()? onTap;
   final String? Function(String?)? onSaved;
-  const AppDropdown({super.key, this.labelText, this.hintText, this.currentFocus, this.nextFocus, this.decoration, this.prefixIcon, required this.dropdownValue, required this.dropDownList, this.validator, this.onChanged, this.onSaved, this.onTap});
+  const AppDropdown({
+    super.key,
+    this.labelText,
+    this.hintText,
+    this.currentFocus,
+    this.nextFocus,
+    this.decoration,
+    this.prefixIcon,
+    required this.dropdownValue,
+    required this.dropDownList,
+    this.validator,
+    this.onChanged,
+    this.onSaved,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {

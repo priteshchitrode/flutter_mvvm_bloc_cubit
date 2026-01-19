@@ -19,7 +19,7 @@ import 'package:lottie/lottie.dart';
 import 'package:shimmer/shimmer.dart';
 
 
-// Input Decoration
+/// Input Decoration
 InputDecoration commonInputDecoration({String? hintText, Color? suffixIconColor, dynamic suffixIcon, Function()? suffixOnTap, Widget? dateTime, Widget? prefixIcon, Color? fillColor,  Color? focusColor, bool? enableBorder = true, TextStyle? hintStyle}) {
 
   Widget? getIconWidget(){
@@ -70,7 +70,7 @@ InputDecoration commonInputDecoration({String? hintText, Color? suffixIconColor,
 }
 
 
-// Lottie Animation
+/// Lottie Animation
 Widget lottieAnimation({required String file, bool? repeat, double? width}) {
   return Lottie.asset(
     file,
@@ -147,7 +147,7 @@ Widget commonCacheNetworkImage({required String path, dynamic errorImage, double
 }
 
 
-// Container decoration
+/// Container decoration
 BoxDecoration commonContainerDecoration({bool? shadow, Color? color, Color? shadowColor, BorderRadiusGeometry? borderRadius, Color? borderColor, double? borderWidth, double? blurRadius, Gradient? gradient}) {
   return BoxDecoration(
       color: color ?? Colors.white,
@@ -159,7 +159,7 @@ BoxDecoration commonContainerDecoration({bool? shadow, Color? color, Color? shad
 }
 
 
-// Generic error widget
+/// Generic error widget
 Widget genericErrorWidget({ErrorType? error, void Function()? onRefresh, void Function()? goBack}) {
   log("Error Type : ${getErrorMsg(errorType: error ?? GenericError())}");
   return Column(
@@ -181,7 +181,7 @@ Widget genericErrorWidget({ErrorType? error, void Function()? onRefresh, void Fu
 }
 
 
-// Common Detail Widget
+/// Common Detail Widget
 Widget commonDetailWidget({required String title, required String subTitle, bool? isVertical, TextStyle? subTitleTextStyle}) {
   if (isVertical == null || isVertical == false) {
     return Row(
@@ -204,7 +204,7 @@ Widget commonDetailWidget({required String title, required String subTitle, bool
 }
 
 
-// Common List Tile
+/// Common List Tile
 Widget commonListTile({required String title, TextStyle? titleStyle,String? subTitle, Color? titleColor, Color? iconBgColor, Color? iconColor, String? iconSvg, void Function()? onTap, Widget? trailing}) {
   return ListTile(
     contentPadding: EdgeInsets.zero,
@@ -222,13 +222,13 @@ Widget commonListTile({required String title, TextStyle? titleStyle,String? subT
   );
 }
 
-// Common divider
+/// Common divider
 Widget commonDivider({double? height, Color? dividerColor, double? indent, double? endIndent }) {
   return Divider(color: dividerColor ?? AppColors.lightDividerColor, height: height ?? 30, indent: indent, endIndent: endIndent);
 }
 
 
-// Doc Grid UI
+/// Doc Grid UI
 Widget docsGridDesign(String docType) {
   return Material(
     elevation: 0.0,
@@ -247,7 +247,7 @@ Widget iconsGridDesign(icon) {
 }
 
 
-// App Loader
+/// App Loader
 Widget appLoader() {
   return const CircularProgressIndicator(strokeCap: StrokeCap.round).paddingBottom(60).center();
 }

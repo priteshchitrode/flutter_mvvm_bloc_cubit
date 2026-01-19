@@ -23,10 +23,7 @@ class ImagePickerFrom {
 
   // Shared method for image picking
   static Future<PickedImageModel?> _pickImage(ImageSource source) async {
-    final XFile? pickedFile = await _picker.pickImage(
-      source: source,
-      imageQuality: 100,
-    );
+    final XFile? pickedFile = await _picker.pickImage(source: source, imageQuality: 100);
 
     if (pickedFile == null) {
       ToastMessages.alert(message: AppString.label.noImageSelected);
@@ -40,13 +37,7 @@ class ImagePickerFrom {
       return null;
     }
 
-    return PickedImageModel(
-      fileName: path.basename(file.path),
-      path: file.path,
-      extension: extension,
-      dateTime: DateTime.now().toIso8601String(),
-    );
-
+    return PickedImageModel(fileName: path.basename(file.path), path: file.path, extension: extension, dateTime: DateTime.now().toIso8601String());
   }
 
   // Image validation
