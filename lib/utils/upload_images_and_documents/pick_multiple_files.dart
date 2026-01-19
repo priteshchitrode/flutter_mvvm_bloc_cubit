@@ -5,17 +5,31 @@ import 'picked_images_and_documents_model.dart';
 
 Future<List<PickedImageModel>?> pickMultipleFile({required BuildContext context, required String type}) async {
   const supportedExtensions = [
-    'jpg', 'jpeg', 'gif', 'bmp', 'pdf', 'png', 'doc', 'docx', 'txt',
-    'xls', 'xlsx', 'ods', 'zip', 'rar', 'xml', 'mp4', 'mp3',
-    'hevc', 'h.264', 'mov', 'heic'
+    'jpg',
+    'jpeg',
+    'gif',
+    'bmp',
+    'pdf',
+    'png',
+    'doc',
+    'docx',
+    'txt',
+    'xls',
+    'xlsx',
+    'ods',
+    'zip',
+    'rar',
+    'xml',
+    'mp4',
+    'mp3',
+    'hevc',
+    'h.264',
+    'mov',
+    'heic',
   ];
 
   try {
-    final result = await FilePicker.platform.pickFiles(
-      allowMultiple: true,
-      withData: false,
-      withReadStream: false,
-    );
+    final result = await FilePicker.platform.pickFiles(allowMultiple: true, withData: false, withReadStream: false);
 
     if (result == null || result.files.isEmpty) {
       if (context.mounted) {
@@ -38,14 +52,7 @@ Future<List<PickedImageModel>?> pickMultipleFile({required BuildContext context,
 
       if (file.path == null) continue;
 
-      validFiles.add(
-        PickedImageModel(
-          fileName: file.name,
-          path: file.path!,
-          extension: extension,
-          dateTime: DateTime.now().toIso8601String(),
-        ),
-      );
+      validFiles.add(PickedImageModel(fileName: file.name, path: file.path!, extension: extension, dateTime: DateTime.now().toIso8601String()));
     }
 
     return validFiles;

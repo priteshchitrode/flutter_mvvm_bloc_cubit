@@ -44,7 +44,7 @@ void exitApp(){
 }
 
 /// Format Time
-formattedTime({required int timeInSecond}) {
+String formattedTime({required int timeInSecond}) {
   int sec = timeInSecond % 60;
   int min = (timeInSecond / 60).floor();
   String minute = min.toString().length <= 1 ? "0$min" : "$min";
@@ -52,6 +52,7 @@ formattedTime({required int timeInSecond}) {
   return "$minute : $second";
 }
 
+/// Date Picker
 Future<String?> commonDatePicker(BuildContext context, {DateTime? initialDate, DateTime? firstDate, DateTime? lastDate }) async {
   DateTime selectedDate = DateTime.now();
   String? date;
@@ -96,6 +97,7 @@ Future<String?> commonDatePicker(BuildContext context, {DateTime? initialDate, D
   return date;
 }
 
+/// Time Picker
 Future<String?> commonTimePicker(BuildContext context, {TimeOfDay? initialTime}) async {
   TimeOfDay selectedTime = TimeOfDay.now();
   String? time;
@@ -142,6 +144,8 @@ Future<String?> commonTimePicker(BuildContext context, {TimeOfDay? initialTime})
   return time;
 }
 
+
+/// Hour Picker
 Future<String?> commonHourPicker(BuildContext context) async {
   TimeOfDay selectedHour = TimeOfDay.now();
   String? hour;

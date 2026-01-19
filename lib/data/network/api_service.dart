@@ -8,7 +8,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_mvvm_bloc_cubit/data/model/result.dart';
 import 'package:flutter_mvvm_bloc_cubit/data/network/api_urls.dart';
 import 'package:flutter_mvvm_bloc_cubit/data/storage/secured_shared_preferences.dart';
-import 'package:flutter_mvvm_bloc_cubit/service/hasInternet/has_internet_connection.dart';
+import 'package:flutter_mvvm_bloc_cubit/service/has_internet_connection.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/constant_variables.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/custom_log.dart';
 
