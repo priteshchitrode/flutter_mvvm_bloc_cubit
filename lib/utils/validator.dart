@@ -25,6 +25,7 @@ class Validator {
     return null;
   }
 
+
   /// Password
   static String? password(String? value){
     if (value == null || value.isEmpty) {
@@ -36,6 +37,8 @@ class Validator {
     return null;
   }
 
+
+  /// Phone
   static String? phone(String? value) {
     String pattern = r'^\+?[0-9]+$';
     RegExp regExp = RegExp(pattern);
@@ -53,8 +56,9 @@ class Validator {
   }
 
 
+  /// Country Code
   static String? countryCode(String? value) {
-    String pattern = r'^\+\d{1,3}$';  // Pattern for '+' followed by 1 to 3 digits
+    String pattern = r'^\+\d{1,3}$';
     RegExp regExp = RegExp(pattern);
 
     if (value == null || value.isEmpty) {

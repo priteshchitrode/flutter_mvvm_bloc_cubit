@@ -21,7 +21,7 @@ class ToastMessages{
 
 
   // Error Msg
-  static internetError({required String message}) async {
+  static void internetError({required String message})  {
     Flushbar(
       messageText: Text(message, style: AppTextStyle.body),
       messageColor: Colors.white,
@@ -35,7 +35,7 @@ class ToastMessages{
   }
 
   // success Msg
-  static success({required String message}) async {
+  static void success({required String message})  {
     Flushbar(
       messageText: Text(message, style: AppTextStyle.body),
       flushbarPosition: FlushbarPosition.TOP ,
@@ -48,7 +48,7 @@ class ToastMessages{
   }
 
   // Error Msg
-  static error({required String message}) {
+  static void error({required String message}) {
     Flushbar(
       messageText: Text(message, style: AppTextStyle.body),
       flushbarPosition: FlushbarPosition.TOP ,
@@ -61,7 +61,7 @@ class ToastMessages{
   }
 
   // Error Msg
-  static alert({required String message}) {
+  static void alert({required String message}) {
     Flushbar(
       messageText: Text(message, style: AppTextStyle.body),
       flushbarPosition: FlushbarPosition.TOP ,
@@ -74,7 +74,7 @@ class ToastMessages{
   }
 
   // Custom toast
-  static custom({required String message}) {
+  static void custom({required String message}) {
     Flushbar(
       messageText: Text(message, style: AppTextStyle.body),
       flushbarPosition: FlushbarPosition.TOP ,
