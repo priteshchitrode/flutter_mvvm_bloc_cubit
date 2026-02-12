@@ -15,5 +15,4 @@ class LoginRepository {
       return Error(ErrorWithMessage(message: e.toString()));
     }
   }
-
 }

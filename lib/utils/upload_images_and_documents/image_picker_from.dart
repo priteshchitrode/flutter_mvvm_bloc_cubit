@@ -11,17 +11,17 @@ class ImagePickerFrom {
   static const List<String> _supportedExtensions = ['PNG', 'jpg', 'jpeg', 'png', 'heif', 'heic', 'HEIF', 'HEIC'];
   static const int _maxFileSize = 8 * 1024 * 1024; // 8MB
 
-  // Pick image from Camera
+  /// Pick image from Camera
   static Future<PickedImageModel?> fromCamera() async {
     return await _pickImage(ImageSource.camera);
   }
 
-  // Pick image from Gallery
+  /// Pick image from Gallery
   static Future<PickedImageModel?> fromGallery() async {
     return await _pickImage(ImageSource.gallery);
   }
 
-  // Shared method for image picking
+  /// Shared method for image picking
   static Future<PickedImageModel?> _pickImage(ImageSource source) async {
     final XFile? pickedFile = await _picker.pickImage(source: source, imageQuality: 100);
 
@@ -37,10 +37,15 @@ class ImagePickerFrom {
       return null;
     }
 
-    return PickedImageModel(fileName: path.basename(file.path), path: file.path, extension: extension, dateTime: DateTime.now().toIso8601String());
+    return PickedImageModel(
+      fileName: path.basename(file.path),
+      path: file.path,
+      extension: extension,
+      dateTime: DateTime.now().toIso8601String(),
+    );
   }
 
-  // Image validation
+  /// Image validation
   static bool _isValidImage(File image, String extension) {
     if (!_supportedExtensions.contains(extension)) {
       ToastMessages.alert(message: AppString.label.imageSupport);

@@ -48,10 +48,8 @@ void initLocator() {
     // Cubit
     locator.registerLazySingleton(() => LoginCubit(locator<LoginRepository>()));
 
-
     CustomLog.info(locator, "All instances registered.");
   } catch (e) {
     CustomLog.error(locator, "ERROR : All instances are not registered.", e);
   }
-
 }

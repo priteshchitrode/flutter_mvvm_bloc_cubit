@@ -2,7 +2,6 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_mvvm_bloc_cubit/data/network/env/environment_controller.dart';
 
 class EnvironmentVariables {
-
   static String get fetchBaseUrl {
     // final devBaseUrl = dotenv.env["API_BASE_URL_LOCALHOST_FOR_ANDROID"] ?? "";
     // final prodBaseUrl = dotenv.env["API_BASE_URL_PROD"] ?? "";
@@ -21,16 +20,13 @@ class EnvironmentVariables {
     }
   }
 
-
   static String get fetchApiBasicAuthUsername {
     return _getEnvVariable("API_BASIC_AUTH_USERNAME");
   }
 
-
   static String get fetchApiBasicAuthPassword {
     return _getEnvVariable("API_BASIC_AUTH_PASSWORD");
   }
-
 
   // Helper method to fetch environment variables safely
   static String _getEnvVariable(String key) {
@@ -47,7 +43,6 @@ class EnvironmentVariables {
     }
   }
 
-
   // Helper method to construct base URL with port
   static String _formatBaseUrl(String baseUrl, String port) {
     if (baseUrl.isEmpty) {
@@ -55,6 +50,4 @@ class EnvironmentVariables {
     }
     return port.isNotEmpty ? "$baseUrl$port" : baseUrl;
   }
-
-
 }

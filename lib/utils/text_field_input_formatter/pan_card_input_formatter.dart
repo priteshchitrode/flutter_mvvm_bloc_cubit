@@ -2,10 +2,7 @@ import 'package:flutter/services.dart';
 
 class PANCardInputFormatter extends TextInputFormatter {
   @override
-  TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue,
-      TextEditingValue newValue,
-      ) {
+  TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
     // Remove any non-alphanumeric characters
     String alphanumericOnly = newValue.text.replaceAll(RegExp(r'[^A-Za-z0-9]'), '');
 
@@ -30,5 +27,3 @@ class PANCardInputFormatter extends TextInputFormatter {
     );
   }
 }
-
-

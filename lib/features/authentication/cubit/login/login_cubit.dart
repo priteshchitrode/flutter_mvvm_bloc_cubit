@@ -11,11 +11,11 @@ class LoginCubit extends BaseCubit<LoginState> {
   final LoginRepository _repository;
   LoginCubit(this._repository) : super(const LoginState());
 
-
   // Login Api Call
-  void _setLoginIState(UIState<LoginModel>? uiState){
+  void _setLoginIState(UIState<LoginModel>? uiState) {
     emit(state.copyWith(sendOtpState: uiState));
   }
+
   Future<void> login(LoginApiRequest request) async {
     _setLoginIState(UIState.loading());
     Result result = await _repository.login(request);
@@ -26,5 +26,4 @@ class LoginCubit extends BaseCubit<LoginState> {
       _setLoginIState(UIState.error(result.type));
     }
   }
-
 }

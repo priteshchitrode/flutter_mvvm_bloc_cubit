@@ -2,10 +2,7 @@ import 'package:flutter/services.dart';
 
 class BankAccountNumberFormatter extends TextInputFormatter {
   @override
-  TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue,
-      TextEditingValue newValue,
-      ) {
+  TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
     // Allow only digits
     String digitsOnly = newValue.text.replaceAll(RegExp(r'\D'), '');
 

@@ -66,8 +66,11 @@ class AppTextField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        // Title
         if (labelText != null) Text(" ${labelText.capitalizeFirst}", style: AppTextStyle.body3),
         if (labelText != null) 6.height,
+
+        // Text Field
         InkWell(
           onTap: onTap ?? () {},
           child: TextFormField(

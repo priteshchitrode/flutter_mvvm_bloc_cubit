@@ -14,16 +14,15 @@ class LoginService {
       final url = ApiUrls.login;
       final result = await _apiService.post(url, body: request.toJson());
       if (result is Success) {
-        final data=  LoginModel.fromJson(result.value);
-        return  Success(data) ;
+        final data = LoginModel.fromJson(result.value);
+        return Success(data);
       } else if (result is Error) {
         return Error(result.type);
       } else {
         return Error(GenericError());
       }
-    } catch(e) {
+    } catch (e) {
       return Error(DeserializationError());
     }
   }
-
 }

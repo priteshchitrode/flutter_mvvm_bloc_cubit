@@ -10,7 +10,6 @@ import 'package:flutter_mvvm_bloc_cubit/utils/toast_messages.dart';
 import 'package:go_router/go_router.dart';
 import 'splash_view_mode.dart';
 
-
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -19,7 +18,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   final splashViewModel = locator<SplashViewModel>();
 
   @override
@@ -38,11 +36,10 @@ class _SplashScreenState extends State<SplashScreen> {
     super.dispose();
   }
 
-
   //  Init Function
   Future<void> init(BuildContext context) async {
     await Future.delayed(const Duration(seconds: 4), () async {
-       await splashViewModel.fetchIsUserLogin();
+      await splashViewModel.fetchIsUserLogin();
     });
 
     if (splashViewModel.checkIsUserLoginUIState != null && splashViewModel.checkIsUserLoginUIState?.status != null) {
@@ -54,20 +51,15 @@ class _SplashScreenState extends State<SplashScreen> {
       }
       if (splashViewModel.checkIsUserLoginUIState?.status == Status.ERROR) {
         if (!context.mounted) return;
-        frameCallback(()=> context.push(AppRouteName.signIn));
+        frameCallback(() => context.push(AppRouteName.signIn));
       }
     } else {
       ToastMessages.error(message: getErrorMsg(errorType: GenericError()));
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-          child: const Icon(Icons.accessibility).center(),
-      ),
-    );
+    return Scaffold(body: SafeArea(child: const Icon(Icons.accessibility).center()));
   }
 }

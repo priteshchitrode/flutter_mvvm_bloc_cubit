@@ -14,7 +14,15 @@ class AppButton extends StatelessWidget {
   final ButtonStyle? style;
   final bool? isLoading;
   final bool? isLinearGradient;
-  const AppButton({super.key, this.onPressed, this.isLoading = false, required this.title, this.textStyle,  this.style, this.isLinearGradient = true});
+  const AppButton({
+    super.key,
+    this.onPressed,
+    this.isLoading = false,
+    required this.title,
+    this.textStyle,
+    this.style,
+    this.isLinearGradient = true,
+  });
 
   @override
   Widget build(BuildContext context) {

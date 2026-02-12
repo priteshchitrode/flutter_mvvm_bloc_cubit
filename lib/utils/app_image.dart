@@ -1,12 +1,13 @@
 @override
-abstract class AppImage{
+abstract class AppImage {
   AppImage._();
   static PngImages png = PngImages();
   static SvgImages svg = SvgImages();
   static JpgImage jpg = JpgImage();
 }
 
-class PngImages{
+/// Png Images
+class PngImages {
   // Path
   static const String _pngImageBasePath = "assets/images/png/";
   // Base
@@ -14,16 +15,16 @@ class PngImages{
   final String brokenImage = "${_pngImageBasePath}broken_image.png";
 }
 
-class SvgImages{
+/// Svg Images
+class SvgImages {
   // Path
   static const String _svgImageBasePath = "assets/images/svg/";
   // Base
   final String noSearchFound = "${_svgImageBasePath}searchNotFound.svg";
-
 }
 
+/// Jpg Image
 class JpgImage {
   // Path
   static const String _jpgImageBasePath = "assets/images/jpg/";
-
 }

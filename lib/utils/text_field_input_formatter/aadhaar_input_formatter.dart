@@ -2,10 +2,7 @@ import 'package:flutter/services.dart';
 
 class AadhaarInputFormatter extends TextInputFormatter {
   @override
-  TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue,
-      TextEditingValue newValue,
-      ) {
+  TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
     // Remove all non-digit characters
     String digitsOnly = newValue.text.replaceAll(RegExp(r'\D'), '');
 

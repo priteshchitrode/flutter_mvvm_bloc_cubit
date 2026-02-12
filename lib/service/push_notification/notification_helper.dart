@@ -1,4 +1,4 @@
-class NotificationHelper{
+class NotificationHelper {
 
   static String convertToJsonStringQuotes({required String raw}) {
     String jsonString = raw;

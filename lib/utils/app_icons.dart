@@ -12,7 +12,6 @@ class PngIcons {
   static const String _pngBasePath = "assets/icons/png/";
   // Base
   final String brokenImage = "${_pngBasePath}image_break.png";
-
 }
 
 /// GIF Icons
@@ -37,4 +36,3 @@ class SvgIcons {
   final String notificationOutline = "${_svgBasePath}notification_outline.svg";
   final String searchOutline = "${_svgBasePath}search_outline.svg";
 }
-

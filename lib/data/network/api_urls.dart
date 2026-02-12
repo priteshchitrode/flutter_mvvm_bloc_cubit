@@ -9,11 +9,9 @@ class ApiUrls {
 
   // Base URL
   static String get _baseUrl => "$_fetchUrl$_path";
-  static String  baseUrl = _baseUrl;
+  static String baseUrl = _baseUrl;
 
   // End Point
   static String sendOtpWithPhoneNumber = "$_baseUrl/otpSend/phoneNumber";
   static String login = "$_baseUrl/login";
-
-
 }
