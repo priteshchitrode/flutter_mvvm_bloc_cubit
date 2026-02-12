@@ -18,7 +18,10 @@ abstract class BaseCubit<S> extends Cubit<S> {
     }
     uiState.status = Status.INITIAL;
     uiState.errorType = null;
-    CustomLog.info(this, "\nReset UI State & Clear Data model : ${T.toString()}  \nUI Status : ${uiState.status.toString()}, \nError Type : ${uiState.errorType}, \nData : ${uiState.data}");
+    CustomLog.info(
+      this,
+      "\nReset UI State & Clear Data model : ${T.toString()}  \nUI Status : ${uiState.status.toString()}, \nError Type : ${uiState.errorType}, \nData : ${uiState.data}",
+    );
     return UIState<T>.initial();
   }
 

@@ -14,29 +14,27 @@ class Validator {
   }
 
   /// Field Required
-  static String? fieldRequired(String? value, {String? fieldName}){
+  static String? fieldRequired(String? value, {String? fieldName}) {
     if (value == null || value.isEmpty) {
-      if(fieldName != null){
+      if (fieldName != null) {
         return '$fieldName is required';
-      }else{
+      } else {
         return 'This filed is required';
       }
     }
     return null;
   }
 
-
   /// Password
-  static String? password(String? value){
+  static String? password(String? value) {
     if (value == null || value.isEmpty) {
       return 'Password is required';
     }
-    if(value.length < 6){
+    if (value.length < 6) {
       return "Password must be at least 6 character long.";
     }
     return null;
   }
-
 
   /// Phone
   static String? phone(String? value) {
@@ -55,7 +53,6 @@ class Validator {
     return null;
   }
 
-
   /// Country Code
   static String? countryCode(String? value) {
     String pattern = r'^\+\d{1,3}$';
@@ -68,7 +65,5 @@ class Validator {
     }
     return null;
   }
-
-
 
 }

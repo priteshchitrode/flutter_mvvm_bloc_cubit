@@ -9,6 +9,7 @@ class AppString {
   static AppSuccessText success = AppSuccessText();
 }
 
+/// Local string use in the project
 class AppLabelText {
   // Core
   final String appName = "Update Your AppName";
@@ -46,12 +47,10 @@ class AppLabelText {
   final String backToHome = 'Back to home';
   final String checkSpellingSearch = 'Check the spelling or try a new search.';
 
-
   // App String
-
-
 }
 
+/// Error Toast Message
 class AppErrorText {
   final String noInternetConnection = "No internet connection";
   final String somethingWentWrong = 'Something Went Wrong';
@@ -73,14 +72,16 @@ class AppErrorText {
   final String failToDownloadFile = 'Error downloading file';
 }
 
+/// Alert Toast Message
 class AppAlertText {
   final String otpMustBeSixDigit = "OTP must be six digit";
-  final String pleaseSelectGuest =  "Please select guest";
-  final String contactPermissionDenied =  "Permission denied to add contacts.";
-  final String loginIDAndPasswordIsRequired =  "Login ID & Password is required";
-  final String pollOptionAlert =  "You can select a maximum of 5 options only.";
+  final String pleaseSelectGuest = "Please select guest";
+  final String contactPermissionDenied = "Permission denied to add contacts.";
+  final String loginIDAndPasswordIsRequired = "Login ID & Password is required";
+  final String pollOptionAlert = "You can select a maximum of 5 options only.";
 }
 
+/// Success Toast Message
 class AppSuccessText {
   final String guestCreatedSuccessfully = "Guest visit created successfully.";
   final String cabCreatedSuccessfully = "Cab visitor created successfully.";
@@ -89,6 +90,7 @@ class AppSuccessText {
   final String requestAddedSuccessfully = "Request added successfully";
 }
 
+/// Error Type Message
 class ErrorTypeMsg {
   final String somethingWentWrong = "Sorry, Something went wrong.";
   final String responseStatusFail = "Response Status Fail";
@@ -108,9 +110,9 @@ class ErrorTypeMsg {
   final String timeOutError = "Oops! Time out!!,\nPlease check your entry and try again.";
   final String requestCancelledError = "Request Cancelled, \nPlease check your entry and try again.";
   final String internalServerError = "Internal Server Error, Please try again later.";
-
 }
 
+/// Session Key
 class PreferenceKey {
   final String uid = "uid";
   final String userToken = "idToken";

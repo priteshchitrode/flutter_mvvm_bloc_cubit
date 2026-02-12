@@ -22,7 +22,6 @@ class AuthRepository {
     }
   }
 
-
   // Clear auth & cache
   Future<void> _clearAuthData() async {
     await _securedSharedPref.reset();
@@ -40,7 +39,4 @@ class AuthRepository {
       return Error(GenericError());
     }
   }
-
-
-
 }

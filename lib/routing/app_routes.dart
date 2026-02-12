@@ -4,7 +4,7 @@ import 'package:flutter_mvvm_bloc_cubit/utils/app_global_variables.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/default_screen.dart';
 import 'package:go_router/go_router.dart';
 
-class AppRoutes{
+class AppRoutes {
   AppRoutes._();
 
   static final GoRouter router = GoRouter(
@@ -12,12 +12,11 @@ class AppRoutes{
     initialLocation: AppRouteName.splash,
     navigatorKey: navigatorKey,
     routes: <RouteBase>[
-
       // Splash
       GoRoute(
         path: AppRouteName.splash,
         builder: (BuildContext context, GoRouterState state) {
-          return  Container();
+          return Container();
         },
       ),
 
@@ -28,9 +27,6 @@ class AppRoutes{
           return const DefaultScreen();
         },
       ),
-
     ],
   );
-
-
 }

@@ -6,7 +6,6 @@ import 'package:flutter_mvvm_bloc_cubit/utils/app_text_style.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/extensions/int_extensions.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-
 class NoSearchResultFoundWidget extends StatelessWidget {
   final String value;
   const NoSearchResultFoundWidget({super.key, required this.value});
@@ -17,7 +16,7 @@ class NoSearchResultFoundWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SvgPicture.asset(AppIcons.svg.search, width: 40, colorFilter: AppColors.svg(AppColors.greyIconColor),),
+          SvgPicture.asset(AppIcons.svg.search, width: 40, colorFilter: AppColors.svg(AppColors.greyIconColor)),
           20.height,
           Wrap(
             alignment: WrapAlignment.center,
@@ -27,8 +26,7 @@ class NoSearchResultFoundWidget extends StatelessWidget {
             ],
           ),
           10.height,
-          Text(AppString.label.checkSpellingSearch, style: AppTextStyle.body3GreyColor, textAlign: TextAlign.center,
-          ),
+          Text(AppString.label.checkSpellingSearch, style: AppTextStyle.body3GreyColor, textAlign: TextAlign.center),
         ],
       ),
     );

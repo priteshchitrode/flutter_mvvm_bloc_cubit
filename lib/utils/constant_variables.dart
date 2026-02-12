@@ -1,7 +1,5 @@
 library;
 
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 
 /// Constant Global variables
@@ -28,9 +26,3 @@ const String MSG = "msg";
 const String indianCurrencySymbol = "₹";
 
 const iosNumberKeyboard = TextInputType.numberWithOptions(signed: true, decimal: true);
-
-
-
-
-
-

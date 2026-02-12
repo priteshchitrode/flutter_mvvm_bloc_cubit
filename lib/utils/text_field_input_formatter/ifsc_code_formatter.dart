@@ -2,10 +2,7 @@ import 'package:flutter/services.dart';
 
 class IFSCCodeFormatter extends TextInputFormatter {
   @override
-  TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue,
-      TextEditingValue newValue,
-      ) {
+  TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
     // Remove non-alphanumeric characters
     String alphanumericOnly = newValue.text.replaceAll(RegExp(r'[^A-Za-z0-9]'), '');
 

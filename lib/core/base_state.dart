@@ -13,7 +13,6 @@ abstract class BaseState<T extends StatefulWidget> extends State<T> {
     logScreenView();
   }
 
-
   void logScreenView() {
     analyticsHelper.logScreenView(widget.toString(), T.toString());
   }
@@ -24,5 +23,4 @@ abstract class BaseState<T extends StatefulWidget> extends State<T> {
     CustomLog.info(this, "Disposed Called");
     super.dispose();
   }
-
 }

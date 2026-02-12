@@ -10,6 +10,4 @@ class SplashRepository {
   Future<Result<bool>> getIsUserLogin() async {
     return await _splashService.checkIsUserLogin();
   }
-
-
 }

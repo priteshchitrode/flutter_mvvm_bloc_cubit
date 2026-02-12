@@ -18,33 +18,36 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shimmer/shimmer.dart';
 
-
 /// Input Decoration
-InputDecoration commonInputDecoration({String? hintText, Color? suffixIconColor, dynamic suffixIcon, Function()? suffixOnTap, Widget? dateTime, Widget? prefixIcon, Color? fillColor,  Color? focusColor, bool? enableBorder = true, TextStyle? hintStyle}) {
-
-  Widget? getIconWidget(){
-    if(suffixIcon is String){
-      if(suffixIcon.toString().contains(".svg")){
+InputDecoration commonInputDecoration({
+  String? hintText,
+  Color? suffixIconColor,
+  dynamic suffixIcon,
+  Function()? suffixOnTap,
+  Widget? dateTime,
+  Widget? prefixIcon,
+  Color? fillColor,
+  Color? focusColor,
+  bool? enableBorder = true,
+  TextStyle? hintStyle,
+}) {
+  Widget? getIconWidget() {
+    if (suffixIcon is String) {
+      if (suffixIcon.toString().contains(".svg")) {
         return InkWell(
-          onTap: suffixOnTap ?? (){},
-          child: SvgPicture.asset(suffixIcon , colorFilter: AppColors.svg(suffixIconColor ?? AppColors.greyIconColor)).paddingAll(15),
+          onTap: suffixOnTap ?? () {},
+          child: SvgPicture.asset(suffixIcon, colorFilter: AppColors.svg(suffixIconColor ?? AppColors.greyIconColor)).paddingAll(15),
         );
-      }else{
+      } else {
         return InkWell(
-            onTap: suffixOnTap ?? (){},
-            child: Image.asset(suffixIcon, color: suffixIconColor ?? AppColors.greyIconColor).paddingAll(15),
+          onTap: suffixOnTap ?? () {},
+          child: Image.asset(suffixIcon, color: suffixIconColor ?? AppColors.greyIconColor).paddingAll(15),
         );
       }
-    }else if(suffixIcon is IconData){
-      return InkWell(
-        onTap: suffixOnTap ?? (){},
-        child: Icon(suffixIcon).paddingAll(15),
-      );
-    }else if(suffixIcon is Widget){
-      return InkWell(
-        onTap: suffixOnTap ?? (){},
-        child: suffixIcon.paddingAll(15),
-      );
+    } else if (suffixIcon is IconData) {
+      return InkWell(onTap: suffixOnTap ?? () {}, child: Icon(suffixIcon).paddingAll(15));
+    } else if (suffixIcon is Widget) {
+      return InkWell(onTap: suffixOnTap ?? () {}, child: suffixIcon.paddingAll(15));
     } else {
       return null;
     }
@@ -62,58 +65,63 @@ InputDecoration commonInputDecoration({String? hintText, Color? suffixIconColor,
     fillColor: fillColor ?? AppColors.textFieldFillColor,
     counterText: '',
     suffixIcon: getIconWidget(),
-    enabledBorder: OutlineInputBorder(borderSide: const BorderSide(color: AppColors.borderColor, width: 1), borderRadius: BorderRadius.circular(borderRadius)),
-    focusedBorder: OutlineInputBorder(borderSide:  BorderSide(color: focusColor ?? AppColors.secondaryColor, width: 1), borderRadius: BorderRadius.circular(borderRadius)),
-    errorBorder: OutlineInputBorder(borderSide: BorderSide(color: enableBorder == false ? Colors.transparent : Colors.red), borderRadius: BorderRadius.circular(borderRadius)),
-    focusedErrorBorder: OutlineInputBorder(borderSide: BorderSide(color: enableBorder == false ? Colors.transparent : Colors.red), borderRadius: BorderRadius.circular(borderRadius)),
+    enabledBorder: OutlineInputBorder(
+      borderSide: const BorderSide(color: AppColors.borderColor, width: 1),
+      borderRadius: BorderRadius.circular(borderRadius),
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: focusColor ?? AppColors.secondaryColor, width: 1),
+      borderRadius: BorderRadius.circular(borderRadius),
+    ),
+    errorBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: enableBorder == false ? Colors.transparent : Colors.red),
+      borderRadius: BorderRadius.circular(borderRadius),
+    ),
+    focusedErrorBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: enableBorder == false ? Colors.transparent : Colors.red),
+      borderRadius: BorderRadius.circular(borderRadius),
+    ),
   );
 }
 
-
-/// Lottie Animation
+/// Lottie Animation widget
 Widget lottieAnimation({required String file, bool? repeat, double? width}) {
-  return Lottie.asset(
-    file,
-    width: width,
-    fit: BoxFit.cover,
-    frameRate: const FrameRate(60),
-    repeat: repeat ?? true,
-  );
+  return Lottie.asset(file, width: width, fit: BoxFit.cover, frameRate: const FrameRate(60), repeat: repeat ?? true);
 }
 
-
-// Common cache network image
+/// Common cache network image widget
 Widget commonCacheNetworkImage({required String path, dynamic errorImage, double? height, double? width, BoxFit? fit, double? radius}) {
-
-  Widget? getIconWidget(){
-    if(errorImage is String){
-      if(errorImage.toString().contains(".svg")){
+  Widget? getIconWidget() {
+    if (errorImage is String) {
+      if (errorImage.toString().contains(".svg")) {
         return SvgPicture.asset(errorImage);
-      }else{
+      } else {
         return Image.asset(errorImage);
       }
-    }else if(errorImage is IconData){
+    } else if (errorImage is IconData) {
       return Icon(errorImage);
-    }else if(errorImage is Widget){
+    } else if (errorImage is Widget) {
       return errorImage;
     } else {
       return null;
     }
   }
 
-  Widget errorWidget(){
-    return  Container(
+  Widget errorWidget() {
+    return Container(
       color: errorImage == null ? AppColors.lightGreyColor : Colors.transparent,
       height: height,
       width: width,
       alignment: Alignment.center,
-      child: errorImage == null ? Container(
-        height: height,
-        width: width,
-        padding: const EdgeInsets.all(commonSafeAreaPadding),
-        decoration: commonContainerDecoration(color: AppColors.lightGreyIconBackgroundColor, borderRadius: BorderRadius.circular(radius ?? 0)),
-        child: Image.asset(AppImage.png.brokenImage, width: 40),
-      ) : getIconWidget()
+      child: errorImage == null
+          ? Container(
+              height: height,
+              width: width,
+              padding: const EdgeInsets.all(commonSafeAreaPadding),
+              decoration: commonContainerDecoration(color: AppColors.lightGreyIconBackgroundColor, borderRadius: BorderRadius.circular(radius ?? 0)),
+              child: Image.asset(AppImage.png.brokenImage, width: 40),
+            )
+          : getIconWidget(),
     ).cornerRadiusWithClipRRect(radius ?? 5);
   }
 
@@ -128,11 +136,7 @@ Widget commonCacheNetworkImage({required String path, dynamic errorImage, double
           child: Shimmer.fromColors(
             baseColor: Colors.black12,
             highlightColor: Colors.white10,
-            child: Container(
-              color: Colors.white,
-              height: height,
-              width: width,
-            ),
+            child: Container(color: Colors.white, height: height, width: width),
           ).cornerRadiusWithClipRRect(radius ?? 5),
         ),
         errorWidget: (context, url, error) {
@@ -146,18 +150,25 @@ Widget commonCacheNetworkImage({required String path, dynamic errorImage, double
   return errorWidget();
 }
 
-
 /// Container decoration
-BoxDecoration commonContainerDecoration({bool? shadow, Color? color, Color? shadowColor, BorderRadiusGeometry? borderRadius, Color? borderColor, double? borderWidth, double? blurRadius, Gradient? gradient}) {
+BoxDecoration commonContainerDecoration({
+  bool? shadow,
+  Color? color,
+  Color? shadowColor,
+  BorderRadiusGeometry? borderRadius,
+  Color? borderColor,
+  double? borderWidth,
+  double? blurRadius,
+  Gradient? gradient,
+}) {
   return BoxDecoration(
-      color: color ?? Colors.white,
-      gradient: gradient,
-      borderRadius: borderRadius ?? BorderRadius.circular(commonRadius),
-      border: Border.all(color: borderColor ?? Colors.transparent, width: borderWidth ?? 1.0),
-      boxShadow: shadow == true ? [BoxShadow(color: shadowColor ?? AppColors.shadowColor, blurRadius: blurRadius ?? 5.0)] : [],
+    color: color ?? Colors.white,
+    gradient: gradient,
+    borderRadius: borderRadius ?? BorderRadius.circular(commonRadius),
+    border: Border.all(color: borderColor ?? Colors.transparent, width: borderWidth ?? 1.0),
+    boxShadow: shadow == true ? [BoxShadow(color: shadowColor ?? AppColors.shadowColor, blurRadius: blurRadius ?? 5.0)] : [],
   );
 }
-
 
 /// Generic error widget
 Widget genericErrorWidget({ErrorType? error, void Function()? onRefresh, void Function()? goBack}) {
@@ -167,54 +178,82 @@ Widget genericErrorWidget({ErrorType? error, void Function()? onRefresh, void Fu
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       // SvgPicture.asset(getErrorImage(errorType: error!), width: 200),
-       SvgPicture.asset(AppImage.svg.noSearchFound, width: 200),
-       50.height,
-      Text(getErrorMsg(errorType: error ?? GenericError()), textAlign: TextAlign.center, style: AppTextStyle.body2),
+      SvgPicture.asset(AppImage.svg.noSearchFound, width: 200),
       50.height,
-      if (onRefresh != null)
-        AppButton(title: AppString.label.refresh, onPressed: onRefresh, style: AppButtonStyle.secondary),
+      Text(
+        getErrorMsg(errorType: error ?? GenericError()),
+        textAlign: TextAlign.center,
+        style: AppTextStyle.body2,
+      ),
+      50.height,
+      if (onRefresh != null) AppButton(title: AppString.label.refresh, onPressed: onRefresh, style: AppButtonStyle.secondary),
       20.height,
-      if(goBack != null)
-      AppButton(title: AppString.label.back, onPressed: goBack),
+      if (goBack != null) AppButton(title: AppString.label.back, onPressed: goBack),
     ],
   ).center().isAnimate().paddingAll(commonSafeAreaPadding);
 }
-
 
 /// Common Detail Widget
 Widget commonDetailWidget({required String title, required String subTitle, bool? isVertical, TextStyle? subTitleTextStyle}) {
   if (isVertical == null || isVertical == false) {
     return Row(
       children: [
-        Text(title, textAlign: TextAlign.start, style: AppTextStyle.body.copyWith(color: AppColors.titleTextColor)),
+        Text(
+          title,
+          textAlign: TextAlign.start,
+          style: AppTextStyle.body.copyWith(color: AppColors.titleTextColor),
+        ),
         10.width,
-        Text(subTitle, textAlign: TextAlign.end, style: subTitleTextStyle ?? AppTextStyle.body.copyWith(fontSize: 15, color: Colors.black, fontWeight: FontWeight.w400)).expand(),
+        Text(
+          subTitle,
+          textAlign: TextAlign.end,
+          style: subTitleTextStyle ?? AppTextStyle.body.copyWith(fontSize: 15, color: Colors.black, fontWeight: FontWeight.w400),
+        ).expand(),
       ],
     );
   } else {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, textAlign: TextAlign.start, style: AppTextStyle.body.copyWith(color: AppColors.titleTextColor)),
+        Text(
+          title,
+          textAlign: TextAlign.start,
+          style: AppTextStyle.body.copyWith(color: AppColors.titleTextColor),
+        ),
         5.height,
-        Text(subTitle, textAlign: TextAlign.start, style: subTitleTextStyle ?? AppTextStyle.body.copyWith(fontSize: 15, color: Colors.black, fontWeight: FontWeight.w400)),
+        Text(
+          subTitle,
+          textAlign: TextAlign.start,
+          style: subTitleTextStyle ?? AppTextStyle.body.copyWith(fontSize: 15, color: Colors.black, fontWeight: FontWeight.w400),
+        ),
       ],
     );
   }
 }
 
-
-/// Common List Tile
-Widget commonListTile({required String title, TextStyle? titleStyle,String? subTitle, Color? titleColor, Color? iconBgColor, Color? iconColor, String? iconSvg, void Function()? onTap, Widget? trailing}) {
+/// Common List Tile widget
+Widget commonListTile({
+  required String title,
+  TextStyle? titleStyle,
+  String? subTitle,
+  Color? titleColor,
+  Color? iconBgColor,
+  Color? iconColor,
+  String? iconSvg,
+  void Function()? onTap,
+  Widget? trailing,
+}) {
   return ListTile(
     contentPadding: EdgeInsets.zero,
-    leading: iconSvg != null ? Container(
+    leading: iconSvg != null
+        ? Container(
             padding: const EdgeInsets.all(10),
             decoration: commonContainerDecoration(color: iconBgColor ?? Colors.transparent, borderRadius: BorderRadius.circular(100)),
             child: SvgPicture.asset(iconSvg, color: iconColor),
-          ) : null,
+          )
+        : null,
     title: Text(title),
-    titleTextStyle: titleStyle ??  AppTextStyle.body2.copyWith(fontWeight: FontWeight.w500, color: titleColor ?? AppColors.primaryTextColor),
+    titleTextStyle: titleStyle ?? AppTextStyle.body2.copyWith(fontWeight: FontWeight.w500, color: titleColor ?? AppColors.primaryTextColor),
     subtitle: subTitle != null ? Text(subTitle) : null,
     subtitleTextStyle: const TextStyle(color: AppColors.greyTextColor),
     trailing: trailing ?? const Icon(Icons.keyboard_arrow_right_rounded, color: AppColors.greyIconColor),
@@ -222,13 +261,17 @@ Widget commonListTile({required String title, TextStyle? titleStyle,String? subT
   );
 }
 
-/// Common divider
-Widget commonDivider({double? height, Color? dividerColor, double? indent, double? endIndent }) {
-  return Divider(color: dividerColor ?? AppColors.lightDividerColor, height: height ?? 30, indent: indent, endIndent: endIndent);
+/// Common divider widget
+Widget commonDivider({double? height, Color? dividerColor, double? indent, double? endIndent}) {
+  return Divider(
+      color: dividerColor ?? AppColors.lightDividerColor,
+      height: height ?? 30,
+      indent: indent,
+      endIndent: endIndent,
+  );
 }
 
-
-/// Doc Grid UI
+/// Doc Grid UI widget
 Widget docsGridDesign(String docType) {
   return Material(
     elevation: 0.0,
@@ -246,12 +289,10 @@ Widget iconsGridDesign(icon) {
   return Icon(icon, color: icon == CupertinoIcons.photo_on_rectangle ? AppColors.greyIconColor : AppColors.greyIconColor, size: 20);
 }
 
-
-/// App Loader
+/// App Loader widget
 Widget appLoader() {
   return const CircularProgressIndicator(strokeCap: StrokeCap.round).paddingBottom(60).center();
 }
-
 
 /// Navigate to Token fail screen
 // Widget navigateToTokenExpireScreen(BuildContext context){
@@ -260,5 +301,3 @@ Widget appLoader() {
 //   });
 //   return Container();
 // }
-
-

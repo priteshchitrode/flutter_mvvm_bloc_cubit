@@ -17,8 +17,6 @@ import 'package:flutter_mvvm_bloc_cubit/utils/upload_images_and_documents/picked
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-
-
 @immutable
 class UploadAttachmentFiles extends StatefulWidget {
   final List<PickedImageModel> multiFilesList;
@@ -35,183 +33,183 @@ class _UploadAttachmentFilesState extends State<UploadAttachmentFiles> {
   @override
   Widget build(BuildContext context) {
     return Builder(
-        builder: (context) {
-          if (widget.multiFilesList.isNotEmpty) {
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(AppString.label.attachment, style: AppTextStyle.textFiled),
-                Text(AppString.label.docSupport, style: AppTextStyle.body4GreyColor),
-                10.height,
-                MasonryGridView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  crossAxisSpacing: 5.0,
-                  mainAxisSpacing: 5.0,
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  padding: EdgeInsets.zero,
-                  gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-                  itemCount: !widget.isSingleImage! ? (widget.multiFilesList.length + 1) : widget.multiFilesList.length,
-                  itemBuilder: (ctx, index) {
+      builder: (context) {
+        if (widget.multiFilesList.isNotEmpty) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
 
-                    if (widget.multiFilesList.length == index && !widget.isSingleImage!) {
-                      if (widget.multiFilesList.length <= 7) {
-                        return GestureDetector(
-                          onTap: !isFile ? () {
-                            commonHideKeyboard(context);
-                            commonBottomSheetWithBGBlur(context: context, screen: const UploadFileAndImageBottomSheet()).then((value) {
-                              if (value != null) {
-                                isFile = true;
-                                widget.multiFilesList.add(value);
+              Text(AppString.label.attachment, style: AppTextStyle.textFiled),
+              Text(AppString.label.docSupport, style: AppTextStyle.body4GreyColor),
+              10.height,
+
+              // Grid View
+              MasonryGridView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                crossAxisSpacing: 5.0,
+                mainAxisSpacing: 5.0,
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
+                padding: EdgeInsets.zero,
+                gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+                itemCount: !widget.isSingleImage! ? (widget.multiFilesList.length + 1) : widget.multiFilesList.length,
+                itemBuilder: (ctx, index) {
+                  if (widget.multiFilesList.length == index && !widget.isSingleImage!) {
+                    if (widget.multiFilesList.length <= 7) {
+                      return GestureDetector(
+                        onTap: !isFile
+                            ? () {
+                                commonHideKeyboard(context);
+                                commonBottomSheetWithBGBlur(context: context, screen: const UploadFileAndImageBottomSheet()).then((value) {
+                                  if (value != null) {
+                                    isFile = true;
+                                    widget.multiFilesList.add(value);
+                                    isFile = false;
+                                    debugPrint("Add new : $value");
+                                  } else {
+                                    isFile = false;
+                                  }
+                                  if (!context.mounted) return;
+                                  commonHideKeyboard(context);
+                                });
+                                setState(() {});
+                              }
+                            : () {},
+                        child: DottedBorder(
+                          options: RectDottedBorderOptions(color: Colors.black12, dashPattern: [10, 5], strokeWidth: 1.5),
+                          child: Container(
+                            height: 155,
+                            alignment: Alignment.center,
+                            child: isFile
+                                ? Text(AppString.label.loading, style: AppTextStyle.body)
+                                : Center(
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        SvgPicture.asset(AppIcons.svg.galleryAdd, colorFilter: AppColors.svg(AppColors.greyIconColor)),
+                                        5.height,
+                                        Text(AppString.label.addMore, style: AppTextStyle.bodyGreyColor),
+                                      ],
+                                    ),
+                                  ),
+                          ),
+                        ),
+                      ).paddingOnly(right: 5, left: 5, top: 5);
+                    } else {
+                      return 0.width;
+                    }
+                  } else {
+                    final extension = widget.multiFilesList[index].extension.toLowerCase();
+                    return Card(
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                      elevation: 1.0,
+                      color: Colors.white,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: Stack(
+                          alignment: Alignment.topRight,
+                          children: [
+                            Container(
+                              height: 160,
+                              alignment: Alignment.centerLeft,
+                              child: Stack(
+                                alignment: Alignment.bottomCenter,
+                                children: [
+                                  // Preview Icons
+                                  buildFilePreviewWidget(widget.multiFilesList[index].path, widget.multiFilesList[index].extension),
+
+                                  //  File name & icon
+                                  buildFileIconAndNameWidget(
+                                    extension: widget.multiFilesList[index].extension,
+                                    fileName: widget.multiFilesList[index].fileName,
+                                  ),
+                                ],
+                              ),
+                            ),
+
+                            // Remove Doc
+                            GestureDetector(
+                              onTap: () {
+                                widget.multiFilesList.removeAt(index);
+                                commonHapticFeedback();
+                                commonHideKeyboard(context);
+                                setState(() {});
+                              },
+                              child: Material(
+                                elevation: 2.0,
+                                color: Colors.red,
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
+                                child: const Icon(Icons.close, color: Colors.white, size: 20),
+                              ).paddingAll(8),
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  }
+                },
+              ),
+            ],
+          );
+        } else {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(AppString.label.attachment, style: AppTextStyle.textFiled),
+              Text(AppString.label.docSupport, style: AppTextStyle.body4GreyColor),
+              10.height,
+
+              // Add File
+              GestureDetector(
+                onTap: !isFile
+                    ? () {
+                        commonHideKeyboard(context);
+                        commonBottomSheet(context: context, barrierDismissible: true, screen: const UploadFileAndImageBottomSheet()).then((value) {
+                          debugPrint("First Time : $value");
+                          isFile = true;
+                          if (value != null) {
+                            for (int i = 0; i < value.length;) {
+                              if (value.length <= 8) {
                                 isFile = false;
-                                debugPrint("Add new : $value");
+                                widget.multiFilesList.add(value);
                               } else {
                                 isFile = false;
                               }
-                              if(!context.mounted) return;
-                              commonHideKeyboard(context);
-                            });
-                            setState(() {});
-                          } : () {},
-                          child: DottedBorder(
-                            options: RectDottedBorderOptions(
-                              color: Colors.black12,
-                              dashPattern: [10, 5],
-                              strokeWidth: 1.5,
-                            ),
-                            child: Container(
-                              height: 155,
-                              alignment: Alignment.center,
-                              child: isFile ? Text(AppString.label.loading, style: AppTextStyle.body) : Center(
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    SvgPicture.asset(AppIcons.svg.galleryAdd, colorFilter: AppColors.svg(AppColors.greyIconColor)),
-                                    5.height,
-                                    Text(AppString.label.addMore, style: AppTextStyle.bodyGreyColor)
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ).paddingOnly(right: 5, left: 5, top: 5);
-                      } else {
-                        return 0.width;
+                              break;
+                            }
+                          } else {
+                            isFile = false;
+                          }
+                          if (!context.mounted) return;
+                          commonHideKeyboard(context);
+                        });
+                        setState(() {});
                       }
-                } else {
-                      final extension = widget.multiFilesList[index].extension.toLowerCase();
-                      return Card(
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                        elevation: 1.0,
-                        color: Colors.white,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: Stack(
-                            alignment: Alignment.topRight,
-                            children: [
-                              Container(
-                                height: 160,
-                                alignment: Alignment.centerLeft,
-                                child: Stack(
-                                  alignment: Alignment.bottomCenter,
-                                  children: [
-                                    // Preview Icons
-                                    buildFilePreviewWidget(widget.multiFilesList[index].path, widget.multiFilesList[index].extension),
-
-                                     //  File name & icon
-                                     buildFileIconAndNameWidget(extension: widget.multiFilesList[index].extension, fileName: widget.multiFilesList[index].fileName),
-                                  ],
-                                ),
-                              ),
-
-                          // Remove Doc
-                          GestureDetector(
-                            onTap: () {
-                              widget.multiFilesList.removeAt(index);
-                              commonHapticFeedback();
-                              commonHideKeyboard(context);
-                              setState(() {});
-                            },
-                            child: Material(
-                              elevation: 2.0,
-                              color: Colors.red,
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
-                              child: const Icon(
-                                Icons.close,
-                                color: Colors.white,
-                                size: 20,
-                              ),
-                            ).paddingAll(8),
-                          ),
-                        ],
+                    : () {},
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: DottedBorder(
+                        options: RectDottedBorderOptions(color: Colors.black12, dashPattern: [10, 5], strokeWidth: 1.5),
+                        child: Container(
+                          height: 160,
+                          alignment: Alignment.center,
+                          child: isFile
+                              ? Text(AppString.label.loading, style: AppTextStyle.body2)
+                              : SvgPicture.asset(AppIcons.svg.galleryAdd, colorFilter: AppColors.svg(AppColors.greyIconColor)),
+                        ),
                       ),
                     ),
-                  );
-                }
-              },
-            ),
-          ],
-        );
-
-      } else {
-
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(AppString.label.attachment, style: AppTextStyle.textFiled),
-            Text(AppString.label.docSupport, style: AppTextStyle.body4GreyColor),
-            10.height,
-            GestureDetector(
-              onTap: !isFile ? () {
-                commonHideKeyboard(context);
-                commonBottomSheet(context: context, barrierDismissible: true, screen: const UploadFileAndImageBottomSheet()).then((value) {
-                  debugPrint("First Time : $value");
-                  isFile = true;
-                  if (value != null) {
-                    for (int i = 0; i < value.length;) {
-                      if (value.length <= 8) {
-                        isFile = false;
-                        widget.multiFilesList.add(value);
-                      } else {
-                        isFile = false;
-                      }
-                      break;
-                    }
-                  } else {
-                    isFile = false;
-                  }
-                  if(!context.mounted) return;
-                  commonHideKeyboard(context);
-                });
-                setState(() {});
-              } : () {},
-              child: Row(
-                children: [
-                  Expanded(
-                    child: DottedBorder(
-                      options: RectDottedBorderOptions(
-                        color: Colors.black12,
-                        dashPattern: [10, 5],
-                        strokeWidth: 1.5,
-                      ),
-                      child: Container(
-                        height: 160,
-                        alignment: Alignment.center,
-                        child: isFile ? Text(AppString.label.loading, style: AppTextStyle.body2) :  SvgPicture.asset(AppIcons.svg.galleryAdd, colorFilter: AppColors.svg(AppColors.greyIconColor),),
-                      ),
-                    ),
-                  ),
-                   const Expanded(child: SizedBox(width: 50))
-                ],
+                    const Expanded(child: SizedBox(width: 50)),
+                  ],
+                ),
               ),
-            ),
-          ],
-        );
-
-      }
-    });
+            ],
+          );
+        }
+      },
+    );
   }
-
 
   // File Preview Widget
   Widget buildFilePreviewWidget(String path, String? extension) {
@@ -255,10 +253,8 @@ class _UploadAttachmentFilesState extends State<UploadAttachmentFiles> {
     }
   }
 
-
   // File Name & Icon
   Widget buildFileIconAndNameWidget({required String extension, required String fileName}) {
-
     final ext = extension.toLowerCase();
 
     ImageFilter getImageBlur() {
@@ -292,11 +288,7 @@ class _UploadAttachmentFilesState extends State<UploadAttachmentFiles> {
         case 'txt':
           return iconsGridDesign(CupertinoIcons.doc_richtext);
         default:
-          return const Icon(
-            CupertinoIcons.doc_text_fill,
-            color: AppColors.greyIconColor,
-            size: 20,
-          );
+          return const Icon(CupertinoIcons.doc_text_fill, color: AppColors.greyIconColor, size: 20);
       }
     }
 
@@ -316,11 +308,7 @@ class _UploadAttachmentFilesState extends State<UploadAttachmentFiles> {
               buildIcon(),
               const SizedBox(width: 10),
               Expanded(
-                child: Text(
-                  fileName,
-                  overflow: TextOverflow.ellipsis,
-                  style: getTextStyle(),
-                ),
+                child: Text(fileName, overflow: TextOverflow.ellipsis, style: getTextStyle()),
               ),
             ],
           ),
@@ -328,6 +316,4 @@ class _UploadAttachmentFilesState extends State<UploadAttachmentFiles> {
       ),
     );
   }
-
-
 }

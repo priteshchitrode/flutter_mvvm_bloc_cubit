@@ -5,8 +5,6 @@ import 'package:flutter_mvvm_bloc_cubit/utils/common_functions.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/constant_variables.dart';
 import 'app_global_variables.dart';
 
-
-
 // Sliding Up Route
 Route createRoute(Widget screen) {
   return PageRouteBuilder(
@@ -16,36 +14,31 @@ Route createRoute(Widget screen) {
       const end = Offset.zero;
       const curve = Curves.ease;
       var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-      return SlideTransition(
-        position: animation.drive(tween),
-        child: child,
-      );
+      return SlideTransition(position: animation.drive(tween), child: child);
     },
   );
 }
 
-
 // Common Native Route
-Route commonRoute(Widget screen, {bool isForward = false, bool nativeMode = false}){
-  if(isAndroid){
-    if(isForward){
+Route commonRoute(Widget screen, {bool isForward = false, bool nativeMode = false}) {
+  if (isAndroid) {
+    if (isForward) {
       return CupertinoPageRoute(builder: (context) => screen);
     }
-    if(nativeMode){
+    if (nativeMode) {
       return MaterialPageRoute(builder: (context) => screen);
     }
     return createRoute(screen);
-  }else{
-    if(isForward){
+  } else {
+    if (isForward) {
       return CupertinoPageRoute(builder: (context) => screen);
     }
     return createRoute(screen);
   }
 }
 
-
 // Splash Route
-Route splashRoute(Widget screen){
+Route splashRoute(Widget screen) {
   return MaterialPageRoute(builder: (context) => screen);
 }
 
@@ -53,16 +46,16 @@ Route splashRoute(Widget screen){
 Future<dynamic> commonBottomSheet<T>({required BuildContext context, required Widget screen, bool? barrierDismissible}) async {
   commonHideKeyboard(context);
   commonHapticFeedback();
-  return  showCupertinoModalPopup<void>(
+  return showCupertinoModalPopup<void>(
     barrierColor: Colors.black12,
     barrierDismissible: barrierDismissible ?? false,
     context: context,
-    builder: (context) =>  ClipRRect(
-        borderRadius: const BorderRadius.only(topLeft: Radius.circular(commonBottomSheetRadius), topRight: Radius.circular(commonBottomSheetRadius)),
-        child: screen),
+    builder: (context) => ClipRRect(
+      borderRadius: const BorderRadius.only(topLeft: Radius.circular(commonBottomSheetRadius), topRight: Radius.circular(commonBottomSheetRadius)),
+      child: screen,
+    ),
   );
 }
-
 
 // Hero Animation Route
 Route createHeroAnimationRoute(Widget screen) {
@@ -71,14 +64,10 @@ Route createHeroAnimationRoute(Widget screen) {
     reverseTransitionDuration: const Duration(milliseconds: 200),
     pageBuilder: (context, animation, secondaryAnimation) {
       final curvedAnimation = CurvedAnimation(parent: animation, curve: const Interval(0, 0.5));
-      return FadeTransition(
-        opacity: curvedAnimation,
-        child: screen,
-      );
+      return FadeTransition(opacity: curvedAnimation, child: screen);
     },
   );
 }
-
 
 // Bottom Sheet With Blur Background
 Future<dynamic> commonBottomSheetWithBGBlur<T>({required BuildContext context, required Widget screen, double? radius}) async {
@@ -87,18 +76,15 @@ Future<dynamic> commonBottomSheetWithBGBlur<T>({required BuildContext context, r
     barrierColor: Colors.black12,
     barrierDismissible: false,
     context: context,
-    builder: (context) =>  BackdropFilter(
-      filter: ImageFilter.blur(
-        sigmaY: 5,
-        sigmaX: 5,
-      ),
+    builder: (context) => BackdropFilter(
+      filter: ImageFilter.blur(sigmaY: 5, sigmaX: 5),
       child: ClipRRect(
-          borderRadius:  BorderRadius.only(topLeft: Radius.circular(radius ?? commonBottomSheetRadius), topRight: Radius.circular(radius ?? commonBottomSheetRadius)),
-          child: screen,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(radius ?? commonBottomSheetRadius),
+          topRight: Radius.circular(radius ?? commonBottomSheetRadius),
+        ),
+        child: screen,
       ),
     ),
   );
-
-
 }
-

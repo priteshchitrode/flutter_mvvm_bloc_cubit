@@ -12,7 +12,6 @@ import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'app_global_variables.dart';
 
-
 /// Field Focus change
 void fieldFocusChange(BuildContext context, {required FocusNode current, required FocusNode nextFocus}) {
   current.unfocus();
@@ -35,10 +34,10 @@ Future<void> commonHideKeyboard(context) async {
 }
 
 /// Exit App
-void exitApp(){
-  if(isIOS){
+void exitApp() {
+  if (isIOS) {
     exit(0);
-  }else{
+  } else {
     SystemNavigator.pop();
   }
 }
@@ -53,13 +52,13 @@ String formattedTime({required int timeInSecond}) {
 }
 
 /// Date Picker
-Future<String?> commonDatePicker(BuildContext context, {DateTime? initialDate, DateTime? firstDate, DateTime? lastDate }) async {
+Future<String?> commonDatePicker(BuildContext context, {DateTime? initialDate, DateTime? firstDate, DateTime? lastDate}) async {
   DateTime selectedDate = DateTime.now();
   String? date;
   commonHideKeyboard(context);
   final DateTime? picked = await showDatePicker(
     context: context,
-    initialDate: initialDate ?? DateTime.now() ,
+    initialDate: initialDate ?? DateTime.now(),
     firstDate: firstDate ?? DateTime(1970),
     lastDate: lastDate ?? DateTime(3000),
     builder: (BuildContext context, Widget? child) {
@@ -144,7 +143,6 @@ Future<String?> commonTimePicker(BuildContext context, {TimeOfDay? initialTime})
   return time;
 }
 
-
 /// Hour Picker
 Future<String?> commonHourPicker(BuildContext context) async {
   TimeOfDay selectedHour = TimeOfDay.now();
@@ -179,9 +177,7 @@ Future<String?> commonHourPicker(BuildContext context) async {
     debugPrint("picked $picked");
     if (picked != null) {
       final now = DateTime.now();
-      final formattedHour = DateFormat('hh a').format(
-        DateTime(now.year, now.month, now.day, picked.hour, 0),
-      );
+      final formattedHour = DateFormat('hh a').format(DateTime(now.year, now.month, now.day, picked.hour, 0));
       hour = formattedHour; // Example output: "09 AM" or "04 PM"
 
       if (kDebugMode) {
@@ -195,8 +191,6 @@ Future<String?> commonHourPicker(BuildContext context) async {
   }
   return hour;
 }
-
-
 
 // /// Error Image
 // String getErrorImage({required ErrorType errorType}){
@@ -258,17 +252,16 @@ String getErrorMsg({required ErrorType errorType}) {
       return AppString.errorType.invalidInput;
     case InternalServerError _:
       return AppString.errorType.internalServerError;
-    case ErrorWithMessage  _:
+    case ErrorWithMessage _:
       return errorType.message;
     default:
       return "(${errorType.toString()}) error".capitalize;
   }
 }
 
-
 /// Check is Numeric
 bool isNumeric(String? s) {
-  if(s == null) {
+  if (s == null) {
     return false;
   }
   return double.tryParse(s) != null;
@@ -279,7 +272,6 @@ Future popToPush(BuildContext context) async {
   Navigator.of(context).pop();
   await Future.delayed(const Duration(milliseconds: 300));
 }
-
 
 /// Time Ago
 String timeAgoSinceDate({required String dateAndTimeString, bool numericDates = true, Object? instance}) {
@@ -328,8 +320,3 @@ Future<void> callRedirect(String phoneNumber) async {
     debugPrint("Error launching dial pad: $e");
   }
 }
-
-
-
-
-

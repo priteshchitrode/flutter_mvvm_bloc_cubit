@@ -43,6 +43,4 @@ class SecuredSharedPreferences {
     }
     return false;
   }
-
-
 }

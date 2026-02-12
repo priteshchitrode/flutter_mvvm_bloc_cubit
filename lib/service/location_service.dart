@@ -5,11 +5,11 @@ import 'package:flutter_mvvm_bloc_cubit/utils/custom_log.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart' as geo;
 
-
+/// Service class for handling all location-related operations.
 class LocationService {
   LocationService._();
 
-  // Get current position
+  /// Get current device latitude and longitude.
   Future<Result<geo.Position>> getCurrentLatLong() async {
     try {
       if (HasInternetConnection.isInternet != true) {
@@ -29,9 +29,7 @@ class LocationService {
       if (permission == geo.LocationPermission.deniedForever) {
         return Error(ErrorWithMessage(message: "Location permission permanently denied."));
       }
-      geo.Position position = await geo.Geolocator.getCurrentPosition(
-        desiredAccuracy: geo.LocationAccuracy.high,
-      );
+      geo.Position position = await geo.Geolocator.getCurrentPosition(desiredAccuracy: geo.LocationAccuracy.high);
       return Success(position);
     } catch (e) {
       CustomLog.error(this, "Failed to fetch location", e);
@@ -39,8 +37,7 @@ class LocationService {
     }
   }
 
-
-  // Get latitude
+  /// Get only latitude value from current location.
   Future<Result<double>> getLatitude() async {
     final result = await getCurrentLatLong();
     if (result is Success<geo.Position>) {
@@ -50,8 +47,7 @@ class LocationService {
     }
   }
 
-
-  // Get longitude
+  /// Get only longitude value from current location.
   Future<Result<double>> getLongitude() async {
     final result = await getCurrentLatLong();
     if (result is Success<geo.Position>) {
@@ -61,8 +57,7 @@ class LocationService {
     }
   }
 
-
-  // Get address from latitude & longitude
+  /// Convert latitude and longitude into readable address.
   Future<Result<String>> getAddressFromLatLng(double latitude, double longitude) async {
     try {
       if (HasInternetConnection.isInternet != true) {
@@ -83,19 +78,14 @@ class LocationService {
     }
   }
 
-
-  // Fetch complete location data (lat, long, address)
+  /// Fetch latitude, longitude, and address together.
   Future<Result<Map<String, dynamic>>> getCurrentLatLongWithAddress() async {
     final positionResult = await getCurrentLatLong();
     if (positionResult is Success<geo.Position>) {
       final position = positionResult.value;
       final addressResult = await getAddressFromLatLng(position.latitude, position.longitude);
       if (addressResult is Success<String>) {
-        return Success({
-          "latitude": position.latitude,
-          "longitude": position.longitude,
-          "address": addressResult.value,
-        });
+        return Success({"latitude": position.latitude, "longitude": position.longitude, "address": addressResult.value});
       } else {
         return Error(ErrorWithMessage(message: "Failed to fetch complete location."));
       }
@@ -104,7 +94,7 @@ class LocationService {
     }
   }
 
-
+  /// Get Place mark object from current device location.
   Future<Result<Placemark>> getPlaceMarkFromCurrentLocation() async {
     try {
       final positionResult = await getCurrentLatLong();
@@ -125,6 +115,5 @@ class LocationService {
       return Error(ErrorWithMessage(message: "Failed to fetch place mark."));
     }
   }
-
 
 }

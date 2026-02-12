@@ -5,10 +5,9 @@ import 'package:flutter_mvvm_bloc_cubit/utils/constant_variables.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/extensions/int_extensions.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/extensions/widget_extensions.dart';
 
-
 class TabBarDelegate extends SliverPersistentHeaderDelegate {
   final TabBar tabBar;
-   TabBarDelegate(this.tabBar);
+  TabBarDelegate(this.tabBar);
 
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
@@ -26,7 +25,7 @@ class TabBarDelegate extends SliverPersistentHeaderDelegate {
               borderRadius: BorderRadius.circular(50),
               borderColor: AppColors.secondaryColor,
               borderWidth: 1,
-              color: AppColors.searchFillColor
+              color: AppColors.searchFillColor,
             ),
             child: tabBar,
           ),

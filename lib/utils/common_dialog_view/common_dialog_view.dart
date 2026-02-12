@@ -8,7 +8,6 @@ import 'package:flutter_mvvm_bloc_cubit/utils/extensions/state_extension.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/extensions/string_extensions.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/extensions/widget_extensions.dart';
 
-
 class CommonDialogView extends StatefulWidget {
   final String? message;
   final String? heading;
@@ -55,8 +54,6 @@ class CommonDialogView extends StatefulWidget {
 }
 
 class _CommonDialogViewState extends State<CommonDialogView> {
-
-
   @override
   void initState() {
     super.initState();
@@ -68,13 +65,11 @@ class _CommonDialogViewState extends State<CommonDialogView> {
     super.dispose();
   }
 
-
   void disposeFunction() => frameCallback(() async {
-    if(widget.afterDismiss != null){
+    if (widget.afterDismiss != null) {
       widget.afterDismiss!.call();
     }
   });
-
 
   @override
   Widget build(BuildContext context) {
@@ -83,71 +78,60 @@ class _CommonDialogViewState extends State<CommonDialogView> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: widget.crossAxisAlignment ?? CrossAxisAlignment.center,
       children: [
-
-        if(!widget.hideCloseButton!)...[
-          AppIconButton(onPressed: ()=> Navigator.of(context).pop(), icon: Icons.close).align(Alignment.topRight),
+        if (!widget.hideCloseButton!) ...[
+          AppIconButton(onPressed: () => Navigator.of(context).pop(), icon: Icons.close).align(Alignment.topRight),
           10.height,
-        ] else...[
+        ] else ...[
           10.height,
         ],
 
+        if (widget.child != null) ...[widget.child!, 20.height],
 
-        if(widget.child != null)...[
-          widget.child!,
-          20.height,
-        ],
-
-        if(widget.heading != null)...[
-          Text(widget.heading!.capitalize,
-              textAlign: TextAlign.center,
-              style: widget.headingTextStyle ??  AppTextStyle.h3.copyWith(color: widget.headingColor ?? Colors.black, fontSize: 25),
+        if (widget.heading != null) ...[
+          Text(
+            widget.heading!.capitalize,
+            textAlign: TextAlign.center,
+            style: widget.headingTextStyle ?? AppTextStyle.h3.copyWith(color: widget.headingColor ?? Colors.black, fontSize: 25),
           ),
           10.height,
         ],
 
-        if(widget.message != null)...[
-          Text(widget.message!, textAlign: TextAlign.center, style:  widget.messageTextStyle ??  AppTextStyle.bodyGreyColor),
+        if (widget.message != null) ...[
+          Text(widget.message!, textAlign: TextAlign.center, style: widget.messageTextStyle ?? AppTextStyle.bodyGreyColor),
           20.height,
         ],
 
-
-
-        if(widget.onTapSingleButton != null)...[
-          AppButton(
-            onPressed:widget.onTapSingleButton ?? (){},
-            title: widget.onSingleButtonText ?? "Continue",
-          ),
+        if (widget.onTapSingleButton != null) ...[
+          AppButton(onPressed: widget.onTapSingleButton ?? () {}, title: widget.onSingleButtonText ?? "Continue"),
         ],
-        
 
         // Buttons
-        if(widget.showYesNoButtonButtons!)
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            // No Button
-            AppButton(
-              style: AppButtonStyle.outline,
-              title: widget.noButtonText ?? "No",
-              onPressed:  widget.onClickNoButton ?? () {
-                Navigator.pop(context);
-              },
-            ).expand(),
-            16.width,
+        if (widget.showYesNoButtonButtons!)
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              // No Button
+              AppButton(
+                style: AppButtonStyle.outline,
+                title: widget.noButtonText ?? "No",
+                onPressed:
+                    widget.onClickNoButton ??
+                    () {
+                      Navigator.pop(context);
+                    },
+              ).expand(),
+              16.width,
 
-            // Yes Button
-            AppButton(
-              style: widget.yesButtonTextStyle ?? AppButtonStyle.primary,
-              isLoading: widget.yesButtonLoading,
-              onPressed: widget.onClickYesButton ?? (){},
-              title: widget.yesButtonText ?? "Yes",
-            ).expand(),
-
-          ],
-        ),
+              // Yes Button
+              AppButton(
+                style: widget.yesButtonTextStyle ?? AppButtonStyle.primary,
+                isLoading: widget.yesButtonLoading,
+                onPressed: widget.onClickYesButton ?? () {},
+                title: widget.yesButtonText ?? "Yes",
+              ).expand(),
+            ],
+          ),
       ],
     ).paddingOnly(bottom: 5, left: 5, right: 5);
   }
 }
-
-

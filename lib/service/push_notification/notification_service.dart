@@ -12,10 +12,9 @@ import 'package:flutter_mvvm_bloc_cubit/service/push_notification/notification_v
 import 'package:flutter_mvvm_bloc_cubit/utils/app_string.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/custom_log.dart';
 
-
-class NotificationService{
+class NotificationService {
   final SecuredSharedPreferences _secureSharedPrefs;
-  NotificationService(this._secureSharedPrefs){
+  NotificationService(this._secureSharedPrefs) {
     _notificationAllowPermission();
     _notificationChannel();
     getFcmToken();
@@ -28,7 +27,6 @@ class NotificationService{
 
   final NotificationView _notificationView = NotificationView();
 
-
   int badgeCount = 0;
 
   /// Increment the badge count and update the app icon
@@ -37,13 +35,11 @@ class NotificationService{
     if (await AppBadgePlus.isSupported()) {
       // Set badge
       AppBadgePlus.updateBadge(badgeCount);
-
     } else {
       CustomLog.debug(this, "App badge not supported on this device.");
     }
     CustomLog.debug(this, "Badge Count : $badgeCount");
   }
-
 
   /// Reset the badge count
   Future<void> clearBadgeCount() async {
@@ -54,20 +50,19 @@ class NotificationService{
     CustomLog.debug(this, "Badge Count Clear : $badgeCount");
   }
 
-
   /// Request permission for notifications on iOS and Android (Android 13 and above)
   Future<void> _notificationAllowPermission() async {
     FirebaseMessaging messaging = FirebaseMessaging.instance;
     try {
       NotificationSettings settings = await messaging.requestPermission(
-            alert: true,
-            announcement: true,
-            badge: true,
-            carPlay: false,
-            sound: true,
-            provisional: false,
-            criticalAlert: false,
-          );
+        alert: true,
+        announcement: true,
+        badge: true,
+        carPlay: false,
+        sound: true,
+        provisional: false,
+        criticalAlert: false,
+      );
       if (settings.authorizationStatus == AuthorizationStatus.authorized) {
         AwesomeNotifications().requestPermissionToSendNotifications();
       } else if (settings.authorizationStatus == AuthorizationStatus.provisional) {
@@ -75,7 +70,6 @@ class NotificationService{
       } else {
         debugPrint('User declined or has not accepted permission');
       }
-
     } catch (e) {
       CustomLog.error(NotificationService, "Notification request permission error : ", e);
     }
@@ -84,14 +78,16 @@ class NotificationService{
   /// Get FCM TOKEN
   Future<void> getFcmToken() async {
     try {
-      await Firebase.initializeApp().then((value) => {
-        FirebaseMessaging.instance.getToken().then((value) async {
-          FirebaseMessaging.instance.subscribeToTopic('global');
-          String token = value ?? "";
-          CustomLog.debug(NotificationService, "Fcm Token : ${token.trim()}");
-          await _secureSharedPrefs.saveKey(AppString.sessionKey.fcmToken, token.trim());
-        })
-      });
+      await Firebase.initializeApp().then(
+        (value) => {
+          FirebaseMessaging.instance.getToken().then((value) async {
+            FirebaseMessaging.instance.subscribeToTopic('global');
+            String token = value ?? "";
+            CustomLog.debug(NotificationService, "Fcm Token : ${token.trim()}");
+            await _secureSharedPrefs.saveKey(AppString.sessionKey.fcmToken, token.trim());
+          }),
+        },
+      );
     } catch (e) {
       CustomLog.error(NotificationService, "Get FCM TOKEN error", e);
     }
@@ -107,29 +103,26 @@ class NotificationService{
     }
   }
 
-
   /// Notification Channel
-  void _notificationChannel(){
+  void _notificationChannel() {
     try {
       AwesomeNotifications().initialize(
-          'resource://mipmap/ic_launcher',
-          [
-            NotificationChannel(
-              channelGroupKey: 'General',
-              channelKey: 'general_channel',
-              channelName: 'General notifications',
-              channelDescription: 'All general notification for latest offers & coupon',
-              importance: NotificationImportance.Max,
-              channelShowBadge: false,
-              icon: 'resource://mipmap/ic_launcher',
-              playSound: true,
-              defaultRingtoneType: DefaultRingtoneType.Notification,
-            ),
-          ],
-          channelGroups: [
-            NotificationChannelGroup(channelGroupKey: 'General', channelGroupName: 'General notifications'),
-          ],
-          debug: false,
+        'resource://mipmap/ic_launcher',
+        [
+          NotificationChannel(
+            channelGroupKey: 'General',
+            channelKey: 'general_channel',
+            channelName: 'General notifications',
+            channelDescription: 'All general notification for latest offers & coupon',
+            importance: NotificationImportance.Max,
+            channelShowBadge: false,
+            icon: 'resource://mipmap/ic_launcher',
+            playSound: true,
+            defaultRingtoneType: DefaultRingtoneType.Notification,
+          ),
+        ],
+        channelGroups: [NotificationChannelGroup(channelGroupKey: 'General', channelGroupName: 'General notifications')],
+        debug: false,
       );
       CustomLog.debug(NotificationService, "Notification Channel Initialize successfully");
     } catch (e) {
@@ -137,24 +130,22 @@ class NotificationService{
     }
   }
 
-
   /// Notification Payload
   Future<Map<String, String?>> _notificationPayload(RemoteMessage message) async {
-    Map<String,String> valueMap = {};
+    Map<String, String> valueMap = {};
     try {
-      String raw =  message.data.toString();
+      String raw = message.data.toString();
       String jsonString = NotificationHelper.convertToJsonStringQuotes(raw: raw);
       final Map<String, dynamic> result = json.decode(jsonString);
-      valueMap =  result.map((key, value) => MapEntry(key, value.toString()));
+      valueMap = result.map((key, value) => MapEntry(key, value.toString()));
     } catch (e) {
       CustomLog.error(NotificationService, "Payload error", e);
     }
     return valueMap;
   }
 
-
   /// Notification Display Method
-  void _displayNotification(){
+  void _displayNotification() {
     try {
       FirebaseMessaging.onMessage.listen((message) async {
         _incrementBadgeCount();
@@ -165,21 +156,19 @@ class NotificationService{
     }
   }
 
-
   /// Firebase Messaging BackgroundHandler
   static Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
     try {
       CustomLog.debug(NotificationView, "Notification Full payload data : ${message.toMap()}");
       NotificationPayload payload = NotificationPayload.fromJson(message.data);
       AppBadgePlus.updateBadge(1);
-      if(payload.route != null){
-       //navigatorKey.currentState?.context.push(payload.route!);
+      if (payload.route != null) {
+        //navigatorKey.currentState?.context.push(payload.route!);
       }
     } catch (e) {
       CustomLog.error(NotificationService, "Background click error", e);
     }
   }
-
 
   /// On Click Foreground State
   @pragma("vm:entry-point")
@@ -187,7 +176,7 @@ class NotificationService{
     try {
       NotificationPayload payload = NotificationPayload.fromJson(receivedAction.payload ?? {});
       CustomLog.debug(NotificationService, "Payload : $payload");
-      if(payload.route != null){
+      if (payload.route != null) {
         //navigatorKey.currentState?.context.push(payload.route!);
       }
     } catch (e) {
@@ -195,11 +184,10 @@ class NotificationService{
     }
   }
 
-
   /// On Click Terminate State
   Future<void> _onClickTerminateState() async {
     try {
-      FirebaseMessaging.instance.getInitialMessage().then((message){
+      FirebaseMessaging.instance.getInitialMessage().then((message) {
         if (message != null) {
           NotificationPayload payload = NotificationPayload.fromJson(message.data);
           _handleNotificationClick(payload, "On Terminate state");
@@ -209,7 +197,6 @@ class NotificationService{
       CustomLog.error(NotificationService, "Terminate State Notification error", e);
     }
   }
-
 
   /// On Click Background State
   Future<void> _onClickBackgroundState() async {
@@ -223,8 +210,8 @@ class NotificationService{
   // TODO : Take only notification payload model as a parameter & if model.rout != null ? navigate to screen :
   void _handleNotificationClick(NotificationPayload payload, String consolePrint) {
     CustomLog.debug(NotificationService, "$consolePrint : $payload");
-    if(payload.route != null){
-     // navigatorKey.currentState?.context.push(payload.route!);
+    if (payload.route != null) {
+      // navigatorKey.currentState?.context.push(payload.route!);
     }
   }
 

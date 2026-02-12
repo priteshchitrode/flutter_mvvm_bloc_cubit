@@ -6,7 +6,6 @@ import 'package:flutter_mvvm_bloc_cubit/service/has_internet_connection.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/app_theme_style.dart';
 import 'package:flutter_mvvm_bloc_cubit/utils/extensions/state_extension.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initializeApp();
@@ -21,7 +20,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   @override
   void initState() {
     initFun();

@@ -42,14 +42,12 @@ Future<List<PickedImageModel>?> pickMultipleFile({required BuildContext context,
 
     for (final file in result.files) {
       final extension = (file.extension ?? '').toLowerCase();
-
       if (!supportedExtensions.contains(extension)) {
         if (context.mounted) {
           ToastMessages.alert(message: "Invalid file format: .$extension");
         }
         return null; // Early return on first invalid file
       }
-
       if (file.path == null) continue;
 
       validFiles.add(PickedImageModel(fileName: file.name, path: file.path!, extension: extension, dateTime: DateTime.now().toIso8601String()));

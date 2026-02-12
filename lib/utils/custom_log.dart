@@ -3,7 +3,6 @@ import 'package:flutter_mvvm_bloc_cubit/helpers/date_helper.dart';
 import 'package:logger/logger.dart';
 
 class CustomLog {
-
   static final Logger _logger = Logger(printer: PrettyPrinter());
 
   static void debug(Object instance, String message) {
