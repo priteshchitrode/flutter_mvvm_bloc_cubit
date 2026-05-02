@@ -8,19 +8,19 @@ import 'package:flutter_mvvm_bloc_cubit/dependency_injection/locator.dart';
 Future<void> initializeApp() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Firebase Initialization
+  /// Firebase Initialization
   // String appName = "App_Name_prod";
   // if (kDebugMode) {
   //   appName = "App_Name_Dev";
   // }
   // await Firebase.initializeApp(name: appName, options: DefaultFirebaseOptions.currentPlatform);
 
-  // Crashlytics
-  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
-  PlatformDispatcher.instance.onError = (error, stack) {
-    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
-    return true;
-  };
+  /// Crashlytics
+  // FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
+  // PlatformDispatcher.instance.onError = (error, stack) {
+  //   FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+  //   return true;
+  // };
 
   // Load Environment Variables
   await dotenv.load(fileName: kDebugMode ? "./assets/env/.env.dev" : "./assets/env/.env.dev");

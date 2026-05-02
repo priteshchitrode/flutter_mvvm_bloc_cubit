@@ -15,14 +15,15 @@ import 'package:flutter_mvvm_bloc_cubit/utils/custom_log.dart';
 class NotificationService {
   final SecuredSharedPreferences _secureSharedPrefs;
   NotificationService(this._secureSharedPrefs) {
-    _notificationAllowPermission();
-    _notificationChannel();
-    getFcmToken();
-    _displayNotification();
-    _onClickBackgroundState();
-    _onClickTerminateState();
-    FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-    AwesomeNotifications().setListeners(onActionReceivedMethod: _receivedNotification);
+    /// Un-Comments this code when you have need
+    // _notificationAllowPermission();
+    // _notificationChannel();
+    // getFcmToken();
+    // _displayNotification();
+    // _onClickBackgroundState();
+    // _onClickTerminateState();
+    // FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+    // AwesomeNotifications().setListeners(onActionReceivedMethod: _receivedNotification);
   }
 
   final NotificationView _notificationView = NotificationView();

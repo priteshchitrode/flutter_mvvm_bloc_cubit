@@ -36,7 +36,7 @@ class _MyAppState extends State<MyApp> {
     return MultiBlocWrapper(
       child: MaterialApp.router(
         title: "Update Your App Name",
-        debugShowCheckedModeBanner: true,
+        debugShowCheckedModeBanner: false,
         theme: AppThemeStyle.appTheme,
         routerConfig: AppRoutes.router,
       ),
