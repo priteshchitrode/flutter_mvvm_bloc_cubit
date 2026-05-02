@@ -29,7 +29,7 @@ Future<List<PickedImageModel>?> pickMultipleFile({required BuildContext context,
   ];
 
   try {
-    final result = await FilePicker.platform.pickFiles(allowMultiple: true, withData: false, withReadStream: false);
+    final result = await FilePicker.pickFiles(allowMultiple: true, withData: false, withReadStream: false);
 
     if (result == null || result.files.isEmpty) {
       if (context.mounted) {
